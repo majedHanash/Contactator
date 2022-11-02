@@ -56,6 +56,11 @@ def generate_job_description(tone, role):
         """write me {tone} job description for {role}""".format(tone=tone, role=role), max_tokens=200)
 
 
+def generate_tagline(tone, description):
+    return generate_text(
+        """suggest {tone} tagline phrase for {description}""".format(tone=tone, description=description), max_tokens=25)
+
+
 def generate_text(userPrompt, max_tokens=15):
 
     response = openai.Completion.create(

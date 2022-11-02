@@ -120,7 +120,8 @@
                                             selected {%endif%}>Song Lyrics</option>
                                         <option value="Story" {% if data is defined and data['useCase']=='Story' %}
                                             selected {%endif%}>Story Plot</option>
-                                        <!--<option value="Tagline" {% if data is defined and data['useCase']=='Tagline' %} selected {%endif%}>Tagline & Headline</option>-->
+                                        <option value="Tagline" {% if data is defined and data['useCase']=='Tagline' %}
+                                            selected {%endif%}>Tagline & Headline</option>
                                         <!--<option value="Testimonial" {% if data is defined and data['useCase']=='Testimonial' %} selected {%endif%}>Testimonial & Review</option>-->
                                         <option value="VideoChannelDescription" {% if data is defined and
                                             data['useCase']=='VideoChannelDescription' %} selected {%endif%}>Video
@@ -212,6 +213,10 @@
             else if (useCase == "JobDescription") {
                 var role = document.getElementById("role");
                 role.value = "{% if data is defined %} {{data['role']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "Tagline") {
+                var description = document.getElementById("description");
+                description.value = "{% if data is defined %} {{data['description']}} {% else %} {{''}} {%endif%}";
             }
         }
     </script>

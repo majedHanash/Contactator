@@ -25,6 +25,8 @@ def handle_post_request(request):
         return handle_interview_questions_request(request), build_interview_questions_data(request)
     elif use_case == 'JobDescription':
         return handle_job_description_request(request), build_job_description_data(request)
+    elif use_case == 'Tagline':
+        return handle_tagline_request(request), build_tagline_data(request)
 
 
 def handle_basic_data(request):
@@ -146,4 +148,15 @@ def handle_job_description_request(request):
 def build_job_description_data(request):
     data = handle_basic_data(request)
     data['role'] = request.form['role']
+    return data
+
+
+def handle_tagline_request(request):
+
+    return ml_back.generate_tagline(request.form['tone'], request.form['description'])
+
+
+def build_tagline_data(request):
+    data = handle_basic_data(request)
+    data['description'] = request.form['description']
     return data

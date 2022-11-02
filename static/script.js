@@ -24,6 +24,9 @@ function addElements() {
         addInterviewQuestionsElements();
     else if (useCase == "JobDescription")
         addJobDescriptionElement();
+    else if (useCase == "Tagline")
+        addTaglineElement();
+
 
 }
 
@@ -104,6 +107,12 @@ function addInterviewQuestionsElements() {
 function addJobDescriptionElement() {
     var container = document.getElementById("filter-container");
     var row = addLabeledTextElement("Jobe role", "role", "role");
+    container.appendChild(row);
+}
+
+function addTaglineElement() {
+    var container = document.getElementById("filter-container");
+    var row = addLabeledTextareaElement("Description", "description", "description", 3);
     container.appendChild(row);
 }
 
