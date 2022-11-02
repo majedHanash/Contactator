@@ -23,6 +23,8 @@ function addElements() {
         addVideoChannelDescriptionElements();
     else if (useCase == "BlogIdea")
         addBlogIdeaElement();
+    else if (useCase == "InterviewQuestions")
+        addInterviewQuestionsElements();
 
 }
 
@@ -92,6 +94,15 @@ function addBlogIdeaElement() {
     container.appendChild(row);
 }
 
+function addInterviewQuestionsElements() {
+    var container = document.getElementById("filter-container");
+    var row1 = addLabeledTextareaElement("Interviewee bio", "intervieweeBio", "intervieweeBio", 3);
+    var row2 = addLabeledTextareaElement("Interview context", "interviweContext", "interviewContext");
+    container.appendChild(row1);
+    container.appendChild(row2);
+}
+
+
 function addLabeledTextElement(labelText, id, name) {
     var row = document.createElement("div");
     row.classList.add("row");
@@ -129,3 +140,4 @@ function addLabeledTextareaElement(labelText, id, name, rows = 2) {
     row.appendChild(formGroup);
     return row;
 }
+

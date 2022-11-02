@@ -46,6 +46,11 @@ def generate_blog_idea(tone, primary_keyword):
         """suggest {tone} blog idea {primary_keyword}""".format(tone=tone, primary_keyword=primary_keyword), max_tokens=100)
 
 
+def generate_interview_questions(tone, interviewee_bio, interview_context):
+    return generate_text(
+        """suggest {tone} interview questions for {interviewee_bio}. {interview_context}""".format(tone=tone, interviewee_bio=interviewee_bio, interview_context=interview_context), max_tokens=100)
+
+
 def generate_text(userPrompt, max_tokens=15):
 
     response = openai.Completion.create(

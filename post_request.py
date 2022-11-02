@@ -21,6 +21,8 @@ def handle_post_request(request):
         return handle_video_channel_description_request(request), build_video_channel_description_data(request)
     elif use_case == 'BlogIdea':
         return handle_blog_idea_request(request), build_blog_idea_data(request)
+    elif use_case == 'InterviewQuestions':
+        return handle_interview_questions_request(request), build_interview_questions_data(request)
 
 
 def handle_basic_data(request):
@@ -119,4 +121,16 @@ def handle_blog_idea_request(request):
 def build_blog_idea_data(request):
     data = handle_basic_data(request)
     data['primaryKeyword'] = request.form['primaryKeyword']
+    return data
+
+
+def handle_interview_questions_request(request):
+
+    return ml_back.generate_interview_questions(request.form['tone'], request.form['intervieweeBio'], request.form['interviewContext'])
+
+
+def build_interview_questions_data(request):
+    data = handle_basic_data(request)
+    data['intervieweeBio'] = request.form['intervieweeBio']
+    data['interviewContext'] = request.form['interviewContext']
     return data

@@ -96,7 +96,9 @@
                                         <option value="Facebook" {% if data is defined and data['useCase']=='Facebook'
                                             %} selected {%endif%}>Facebook, Twitter, LinkedIn Ads</option>
                                         <!--<option value="GoogleAd" {% if data is defined and data['useCase']=='GoogleAd' %} selected {%endif%}>Google Search Ads</option>-->
-                                        <!--<option value="InterviewQuestion" {% if data is defined and data['useCase']=='InterviewQuestion' %} selected {%endif%}>Interview Questions</option>-->
+                                        <option value="InterviewQuestions" {% if data is defined and
+                                            data['useCase']=='InterviewQuestions' %} selected {%endif%}>Interview
+                                            Questions</option>
                                         <!--<option value="JobDescription" {% if data is defined and data['useCase']=='JobDescription' %} selected {%endif%}>Job Description</option>-->
                                         <!--<option value="KeywordsExtractor" {% if data is defined and data['useCase']=='KeywordsExtractor' %} selected {%endif%}>Keywords Extractor</option>-->
                                         <!--<option value="KeywordsGenerator" {% if data is defined and data['useCase']=='KeywordsGenerator' %} selected {%endif%}>Keywords Generator</option>-->
@@ -198,6 +200,12 @@
             else if (useCase == "BlogIdea") {
                 var primaryKeyword = document.getElementById("primaryKeyword");
                 primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "InterviewQuestions") {
+                var intervieweeBio = document.getElementById("intervieweeBio");
+                intervieweeBio.value = "{% if data is defined %} {{data['intervieweeBio']}} {% else %} {{''}} {%endif%}";
+                var interviewContext = document.getElementById("interviewContext");
+                interviewContext.value = "{% if data is defined %} {{data['interviewContext']}} {% else %} {{''}} {%endif%}";
             }
         }
     </script>
