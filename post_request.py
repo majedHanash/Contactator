@@ -23,6 +23,8 @@ def handle_post_request(request):
         return handle_blog_idea_request(request), build_blog_idea_data(request)
     elif use_case == 'InterviewQuestions':
         return handle_interview_questions_request(request), build_interview_questions_data(request)
+    elif use_case == 'JobDescription':
+        return handle_job_description_request(request), build_job_description_data(request)
 
 
 def handle_basic_data(request):
@@ -133,4 +135,15 @@ def build_interview_questions_data(request):
     data = handle_basic_data(request)
     data['intervieweeBio'] = request.form['intervieweeBio']
     data['interviewContext'] = request.form['interviewContext']
+    return data
+
+
+def handle_job_description_request(request):
+
+    return ml_back.generate_job_description(request.form['tone'], request.form['role'])
+
+
+def build_job_description_data(request):
+    data = handle_basic_data(request)
+    data['role'] = request.form['role']
     return data

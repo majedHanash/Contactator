@@ -1,8 +1,5 @@
 document.onload = handleOnLoad();
 
-
-
-
 function addElements() {
     console.log("hi");
     removeAllRemovables();
@@ -25,6 +22,8 @@ function addElements() {
         addBlogIdeaElement();
     else if (useCase == "InterviewQuestions")
         addInterviewQuestionsElements();
+    else if (useCase == "JobDescription")
+        addJobDescriptionElement();
 
 }
 
@@ -102,6 +101,11 @@ function addInterviewQuestionsElements() {
     container.appendChild(row2);
 }
 
+function addJobDescriptionElement() {
+    var container = document.getElementById("filter-container");
+    var row = addLabeledTextElement("Jobe role", "role", "role");
+    container.appendChild(row);
+}
 
 function addLabeledTextElement(labelText, id, name) {
     var row = document.createElement("div");

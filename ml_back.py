@@ -51,6 +51,11 @@ def generate_interview_questions(tone, interviewee_bio, interview_context):
         """suggest {tone} interview questions for {interviewee_bio}. {interview_context}""".format(tone=tone, interviewee_bio=interviewee_bio, interview_context=interview_context), max_tokens=100)
 
 
+def generate_job_description(tone, role):
+    return generate_text(
+        """write me {tone} job description for {role}""".format(tone=tone, role=role), max_tokens=200)
+
+
 def generate_text(userPrompt, max_tokens=15):
 
     response = openai.Completion.create(

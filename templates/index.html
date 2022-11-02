@@ -99,7 +99,9 @@
                                         <option value="InterviewQuestions" {% if data is defined and
                                             data['useCase']=='InterviewQuestions' %} selected {%endif%}>Interview
                                             Questions</option>
-                                        <!--<option value="JobDescription" {% if data is defined and data['useCase']=='JobDescription' %} selected {%endif%}>Job Description</option>-->
+                                        <option value="JobDescription" {% if data is defined and
+                                            data['useCase']=='JobDescription' %} selected {%endif%}>Job Description
+                                        </option>
                                         <!--<option value="KeywordsExtractor" {% if data is defined and data['useCase']=='KeywordsExtractor' %} selected {%endif%}>Keywords Extractor</option>-->
                                         <!--<option value="KeywordsGenerator" {% if data is defined and data['useCase']=='KeywordsGenerator' %} selected {%endif%}>Keywords Generator</option>-->
                                         <!--<option value="LandingPage" {% if data is defined and data['useCase']=='LandingPage' %} selected {%endif%}>Landing Page & Website Copies</option>-->
@@ -206,6 +208,10 @@
                 intervieweeBio.value = "{% if data is defined %} {{data['intervieweeBio']}} {% else %} {{''}} {%endif%}";
                 var interviewContext = document.getElementById("interviewContext");
                 interviewContext.value = "{% if data is defined %} {{data['interviewContext']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "JobDescription") {
+                var role = document.getElementById("role");
+                role.value = "{% if data is defined %} {{data['role']}} {% else %} {{''}} {%endif%}";
             }
         }
     </script>
