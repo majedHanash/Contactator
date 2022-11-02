@@ -28,6 +28,9 @@ function addElements() {
         addTaglineElement();
     else if (useCase == "Testimonial")
         addTestimonialElements();
+    else if (useCase == "QuestionAnswer")
+        addQuestionAnswerElement();
+
 
 
 }
@@ -163,5 +166,12 @@ function addLabeledTextareaElement(labelText, id, name, rows = 2) {
     formGroup.appendChild(text);
     row.appendChild(formGroup);
     return row;
+}
+
+
+function addQuestionAnswerElement() {
+    var container = document.getElementById("filter-container");
+    var row = addLabeledTextareaElement("Topic description", "description", "description", 4);
+    container.appendChild(row);
 }
 

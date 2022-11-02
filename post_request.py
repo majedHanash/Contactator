@@ -29,6 +29,8 @@ def handle_post_request(request):
         return handle_tagline_request(request), build_tagline_data(request)
     elif use_case == 'Testimonial':
         return handle_testimonial_request(request), build_testimonial_data(request)
+    elif use_case == 'QuestionAnswer':
+        return handle_question_answer_request(request), build_question_answer_data(request)
 
 
 def handle_basic_data(request):
@@ -173,4 +175,15 @@ def build_testimonial_data(request):
     data = handle_basic_data(request)
     data['name'] = request.form['name']
     data['reviewTitle'] = request.form['reviewTitle']
+    return data
+
+
+def handle_question_answer_request(request):
+
+    return ml_back.generate_question_answer(request.form['tone'], request.form['description'])
+
+
+def build_question_answer_data(request):
+    data = handle_basic_data(request)
+    data['description'] = request.form['description']
     return data

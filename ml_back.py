@@ -66,6 +66,11 @@ def generate_testimonial(tone, name, reviewTitle):
         """suggest {tone} testimonial about {name}. {reviewTitle}""".format(tone=tone, name=name, reviewTitle=reviewTitle), max_tokens=150)
 
 
+def generate_question_answer(tone, description):
+    return generate_text(
+        """write {tone} questions about the following text: {description}""".format(tone=tone, description=description), max_tokens=100)
+
+
 def generate_text(userPrompt, max_tokens=15):
 
     response = openai.Completion.create(

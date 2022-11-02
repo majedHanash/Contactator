@@ -110,7 +110,9 @@
                                         <!--<option value="ProductDescription" {% if data is defined and data['useCase']=='ProductDescription' %} selected {%endif%}>Product Description</option>-->
                                         <!--<option value="ProductDescriptionBullet" {% if data is defined and data['useCase']=='ProductDescriptionBullet' %} selected {%endif%}>Product Description (bullet points)</option>-->
                                         <!--<option value="ProfileBio" {% if data is defined and data['useCase']=='ProfileBio' %} selected {%endif%}>Profile Bio</option>-->
-                                        <!--<option value="QuestionAnswer" {% if data is defined and data['useCase']=='QuestionAnswer' %} selected {%endif%}>Question & Answer</option>-->
+                                        <option value="QuestionAnswer" {% if data is defined and
+                                            data['useCase']=='QuestionAnswer' %} selected {%endif%}>Question & Answer
+                                        </option>
                                         <!--<option value="ReplyToReviews" {% if data is defined and data['useCase']=='ReplyToReviews' %} selected {%endif%}>Reply to Reviews & Messages</option>-->
                                         <!--<option value="SEODescription" {% if data is defined and data['useCase']=='SEODescription' %} selected {%endif%}>SEO Meta Description</option>-->
                                         <!--<option value="SEOTitle" {% if data is defined and data['useCase']=='SEOTitle' %} selected {%endif%}>SEO Meta Title</option>-->
@@ -225,6 +227,10 @@
                 name.value = "{% if data is defined %} {{data['name']}} {% else %} {{''}} {%endif%}";
                 var reviewTitle = document.getElementById("reviewTitle");
                 name.reviewTitle = "{% if data is defined %} {{data['reviewTitle']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "QuestionAnswer") {
+                var description = document.getElementById("description");
+                name.description = "{% if data is defined %} {{data['description']}} {% else %} {{''}} {%endif%}";
             }
 
         }
