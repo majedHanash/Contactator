@@ -19,6 +19,8 @@ function addElements() {
         addFacebookElement();
     else if (useCase == "CoverLetter")
         addCoverLetterElement();
+    else if (useCase == "VideoChannelDescription")
+        addVideoChannelDescriptionElements();
 
 }
 
@@ -183,4 +185,34 @@ function addCoverLetterElement() {
 
     container.appendChild(row1);
     container.appendChild(row2);
+}
+
+function addVideoChannelDescriptionElements() {
+    var container = document.getElementById("filter-container");
+    var row1 = addLabeledTextElement("Category", "category", "category");
+    var row2 = addLabeledTextElement("Channel name", "name", "name");
+    var row3 = addLabeledTextElement("What to cover", "cover", "cover");
+
+    container.appendChild(row1);
+    container.appendChild(row2);
+    container.appendChild(row3);
+}
+
+function addLabeledTextElement(labelText, id, name) {
+    var row = document.createElement("div");
+    row.classList.add("row");
+    row.classList.add("removable");
+    var formGroup = document.createElement("div")
+    formGroup.classList.add("form-group");
+    var label = document.createElement("label");
+    label.innerHTML = labelText;
+    var text = document.createElement("input");
+    text.classList.add("form-control");
+    text.type = "text";
+    text.id = id;
+    text.name = name;
+    formGroup.appendChild(label);
+    formGroup.appendChild(text);
+    row.appendChild(formGroup);
+    return row
 }

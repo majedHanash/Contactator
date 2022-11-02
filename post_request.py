@@ -17,6 +17,8 @@ def handle_post_request(request):
         return handle_facebook_request(request), build_facebook_data(request)
     elif use_case == 'CoverLetter':
         return handle_cover_letter_request(request), build_cover_letter_data(request)
+    elif use_case == 'VideoChannelDescription':
+        return handle_video_channel_description_request(request), build_video_channel_description_data(request)
 
 
 def handle_basic_data(request):
@@ -91,4 +93,17 @@ def build_cover_letter_data(request):
     data = handle_basic_data(request)
     data['jobRole'] = request.form['jobRole']
     data['jobSkills'] = request.form['jobSkills']
+    return data
+
+
+def handle_video_channel_description_request(request):
+
+    return ml_back.generate_video_channel_description(request.form['tone'], request.form['category'], request.form['name'], request.form['cover'])
+
+
+def build_video_channel_description_data(request):
+    data = handle_basic_data(request)
+    data['category'] = request.form['category']
+    data['name'] = request.form['name']
+    data['cover'] = request.form['cover']
     return data

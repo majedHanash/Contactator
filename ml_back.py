@@ -36,6 +36,11 @@ def generate_cover_letter(tone, job_role, job_skills):
         """Write me {tone} cover letter for {job_role} role. skills: {job_skills} """.format(tone=tone, job_role=job_role, job_skills=job_skills), max_tokens=150)
 
 
+def generate_video_channel_description(tone, category, name, cover):
+    return generate_text(
+        """Write me {tone} video channel description for {category} channel called {name}. We cover {cover}. """.format(tone=tone, category=category, name=name, cover=cover), max_tokens=100)
+
+
 def generate_text(userPrompt, max_tokens=15):
 
     response = openai.Completion.create(

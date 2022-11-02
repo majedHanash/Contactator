@@ -117,7 +117,9 @@
                                             selected {%endif%}>Story Plot</option>
                                         <!--<option value="Tagline" {% if data is defined and data['useCase']=='Tagline' %} selected {%endif%}>Tagline & Headline</option>-->
                                         <!--<option value="Testimonial" {% if data is defined and data['useCase']=='Testimonial' %} selected {%endif%}>Testimonial & Review</option>-->
-                                        <!--<option value="VideoChannelDescription" {% if data is defined and data['useCase']=='VideoChannelDescription' %} selected {%endif%}>Video Channel Description</option>-->
+                                        <option value="VideoChannelDescription" {% if data is defined and
+                                            data['useCase']=='VideoChannelDescription' %} selected {%endif%}>Video
+                                            Channel Description</option>
                                         <!--<option value="VideoDescription" {% if data is defined and data['useCase']=='VideoDescription' %} selected {%endif%}>Video Description</option>-->
                                         <!--<option value="VideoIdea" {% if data is defined and data['useCase']=='VideoIdea' %} selected {%endif%}>Video Idea</option>-->
                                     </select>
@@ -183,6 +185,14 @@
                 jobRole.value = "{% if data is defined %} {{data['jobRole']}} {% else %} {{''}} {%endif%}";
                 var jobSkills = document.getElementById("jobSkills");
                 jobSkills.value = "{% if data is defined %} {{data['jobSkills']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "VideoChannelDescription") {
+                var category = document.getElementById("category");
+                category.value = "{% if data is defined %} {{data['category']}} {% else %} {{''}} {%endif%}";
+                var name = document.getElementById("name");
+                name.value = "{% if data is defined %} {{data['name']}} {% else %} {{''}} {%endif%}";
+                var cover = document.getElementById("cover");
+                cover.value = "{% if data is defined %} {{data['cover']}} {% else %} {{''}} {%endif%}";
             }
         }
     </script>
