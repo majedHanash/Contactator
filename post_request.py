@@ -15,6 +15,8 @@ def handle_post_request(request):
         return handle_story_request(request), build_story_data(request)
     elif use_case == 'Facebook':
         return handle_facebook_request(request), build_facebook_data(request)
+    elif use_case == 'CoverLetter':
+        return handle_cover_letter_request(request), build_cover_letter_data(request)
 
 
 def handle_basic_data(request):
@@ -77,4 +79,16 @@ def build_facebook_data(request):
     data = handle_basic_data(request)
     data['productName'] = request.form['productName']
     data['productDescription'] = request.form['productDescription']
+    return data
+
+
+def handle_cover_letter_request(request):
+
+    return ml_back.generate_cover_letter(request.form['tone'], request.form['jobRole'], request.form['jobSkills'])
+
+
+def build_cover_letter_data(request):
+    data = handle_basic_data(request)
+    data['jobRole'] = request.form['jobRole']
+    data['jobSkills'] = request.form['jobSkills']
     return data

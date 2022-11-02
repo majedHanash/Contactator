@@ -78,7 +78,7 @@
                             <div class="form-group">
                                 <label for="exampleInputUseCase">Select use case</label>
                                 <div class="dropdown use-case">
-                                    <select title="Select your surfboard" class="selectpicker form-select"
+                                    <select title="Select your use case" class=" selectpicker form-select"
                                         onchange="addElements()" id="useCase" name="useCase">
                                         <!--<option value="BlogIdea" {% if data is defined and data['useCase']=='BlogIdea' %} selected {%endif%}>Blog Idea & Outline</option>-->
                                         <!--<option value="BlogSection" {% if data is defined and data['useCase']=='BlogSection' %} selected {%endif%}>Blog Section Writing</option>-->
@@ -88,7 +88,8 @@
                                         <!--<option value="CallToAction" {% if data is defined and data['useCase']=='CallToAction' %} selected {%endif%}>Call To Action</option>-->
                                         <!--<option value="AIDA" {% if data is defined and data['useCase']=='AIDA' %} selected {%endif%}>Copywriting Framework: AIDA</option>-->
                                         <!--<option value="PAS" {% if data is defined and data['useCase']=='PAS' %} selected {%endif%}>Copywriting Framework: PAS</option>-->
-                                        <!--<option value="CoverLetter" {% if data is defined and data['useCase']=='CoverLetter' %} selected {%endif%}>Cover Letter</option>-->
+                                        <option value="CoverLetter" {% if data is defined and
+                                            data['useCase']=='CoverLetter' %} selected {%endif%}>Cover Letter</option>
                                         <option value="Email" {% if ((data is defined and data['useCase']=='Email' ) or
                                             (data is not defined)) %} selected {%endif%}>Email</option>
                                         <option value="Facebook" {% if data is defined and data['useCase']=='Facebook'
@@ -176,6 +177,12 @@
                 productName.value = "{% if data is defined %} {{data['productName']}} {% else %} {{''}} {%endif%}";
                 var productDescription = document.getElementById("productDescription");
                 productDescription.value = "{% if data is defined %} {{data['productDescription']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "CoveLetter") {
+                var jobRole = document.getElementById("jobRole");
+                jobRole.value = "{% if data is defined %} {{data['jobRole']}} {% else %} {{''}} {%endif%}";
+                var jobSkills = document.getElementById("jobSkills");
+                jobSkills.value = "{% if data is defined %} {{data['jobSkills']}} {% else %} {{''}} {%endif%}";
             }
         }
     </script>

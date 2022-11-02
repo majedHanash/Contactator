@@ -17,6 +17,8 @@ function addElements() {
         addStoryElement();
     else if (useCase == "Facebook")
         addFacebookElement();
+    else if (useCase == "CoverLetter")
+        addCoverLetterElement();
 
 }
 
@@ -139,6 +141,44 @@ function addFacebookElement() {
 
     formGroup2.appendChild(label2);
     formGroup2.appendChild(description);
+    row2.appendChild(formGroup2);
+
+    container.appendChild(row1);
+    container.appendChild(row2);
+}
+
+function addCoverLetterElement() {
+    var container = document.getElementById("filter-container");
+    var row1 = document.createElement("div");
+    row1.classList.add("row");
+    row1.classList.add("removable");
+    var formGroup1 = document.createElement("div")
+    formGroup1.classList.add("form-group");
+    var label1 = document.createElement("label");
+    label1.innerHTML = "Job Role";
+    var text1 = document.createElement("input");
+    text1.classList.add("form-control");
+    text1.type = "text";
+    text1.id = "jobRole";
+    text1.name = "jobRole";
+    formGroup1.appendChild(label1);
+    formGroup1.appendChild(text1);
+    row1.appendChild(formGroup1);
+
+    var row2 = document.createElement("div");
+    row2.classList.add("row");
+    row2.classList.add("removable");
+    var formGroup2 = document.createElement("div")
+    formGroup2.classList.add("form-group");
+    var label2 = document.createElement("label");
+    label2.innerHTML = "Job Skills";
+    var text2 = document.createElement("input");
+    text2.classList.add("form-control");
+    text2.type = "text";
+    text2.id = "jobSkills";
+    text2.name = "jobSkills";
+    formGroup2.appendChild(label2);
+    formGroup2.appendChild(text2);
     row2.appendChild(formGroup2);
 
     container.appendChild(row1);
