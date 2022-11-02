@@ -27,6 +27,8 @@ def handle_post_request(request):
         return handle_job_description_request(request), build_job_description_data(request)
     elif use_case == 'Tagline':
         return handle_tagline_request(request), build_tagline_data(request)
+    elif use_case == 'Testimonial':
+        return handle_testimonial_request(request), build_testimonial_data(request)
 
 
 def handle_basic_data(request):
@@ -159,4 +161,16 @@ def handle_tagline_request(request):
 def build_tagline_data(request):
     data = handle_basic_data(request)
     data['description'] = request.form['description']
+    return data
+
+
+def handle_testimonial_request(request):
+
+    return ml_back.generate_testimonial(request.form['tone'], request.form['name'], request.form['reviewTitle'])
+
+
+def build_testimonial_data(request):
+    data = handle_basic_data(request)
+    data['name'] = request.form['name']
+    data['reviewTitle'] = request.form['reviewTitle']
     return data

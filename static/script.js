@@ -26,6 +26,8 @@ function addElements() {
         addJobDescriptionElement();
     else if (useCase == "Tagline")
         addTaglineElement();
+    else if (useCase == "Testimonial")
+        addTestimonialElements();
 
 
 }
@@ -115,6 +117,15 @@ function addTaglineElement() {
     var row = addLabeledTextareaElement("Description", "description", "description", 3);
     container.appendChild(row);
 }
+
+function addTestimonialElements() {
+    var container = document.getElementById("filter-container");
+    var row1 = addLabeledTextElement("Name", "name", "name");
+    var row2 = addLabeledTextareaElement("Review title", "reviewTitle", "reviewTitle");
+    container.appendChild(row1);
+    container.appendChild(row2);
+}
+
 
 function addLabeledTextElement(labelText, id, name) {
     var row = document.createElement("div");

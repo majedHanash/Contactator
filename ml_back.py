@@ -61,6 +61,11 @@ def generate_tagline(tone, description):
         """suggest {tone} tagline phrase for {description}""".format(tone=tone, description=description), max_tokens=25)
 
 
+def generate_testimonial(tone, name, reviewTitle):
+    return generate_text(
+        """suggest {tone} testimonial about {name}. {reviewTitle}""".format(tone=tone, name=name, reviewTitle=reviewTitle), max_tokens=150)
+
+
 def generate_text(userPrompt, max_tokens=15):
 
     response = openai.Completion.create(

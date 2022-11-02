@@ -122,7 +122,9 @@
                                             selected {%endif%}>Story Plot</option>
                                         <option value="Tagline" {% if data is defined and data['useCase']=='Tagline' %}
                                             selected {%endif%}>Tagline & Headline</option>
-                                        <!--<option value="Testimonial" {% if data is defined and data['useCase']=='Testimonial' %} selected {%endif%}>Testimonial & Review</option>-->
+                                        <option value="Testimonial" {% if data is defined and
+                                            data['useCase']=='Testimonial' %} selected {%endif%}>Testimonial & Review
+                                        </option>
                                         <option value="VideoChannelDescription" {% if data is defined and
                                             data['useCase']=='VideoChannelDescription' %} selected {%endif%}>Video
                                             Channel Description</option>
@@ -218,6 +220,13 @@
                 var description = document.getElementById("description");
                 description.value = "{% if data is defined %} {{data['description']}} {% else %} {{''}} {%endif%}";
             }
+            else if (useCase == "Testimonial") {
+                var name = document.getElementById("name");
+                name.value = "{% if data is defined %} {{data['name']}} {% else %} {{''}} {%endif%}";
+                var reviewTitle = document.getElementById("reviewTitle");
+                name.reviewTitle = "{% if data is defined %} {{data['reviewTitle']}} {% else %} {{''}} {%endif%}";
+            }
+
         }
     </script>
 
