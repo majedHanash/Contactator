@@ -18,9 +18,11 @@ function addElements() {
     else if (useCase == "Facebook")
         addFacebookElement();
     else if (useCase == "CoverLetter")
-        addCoverLetterElement();
+        addCoverLetterElements();
     else if (useCase == "VideoChannelDescription")
         addVideoChannelDescriptionElements();
+    else if (useCase == "BlogIdea")
+        addBlogIdeaElement();
 
 }
 
@@ -64,7 +66,7 @@ function addFacebookElement() {
     container.appendChild(row2);
 }
 
-function addCoverLetterElement() {
+function addCoverLetterElements() {
     var container = document.getElementById("filter-container");
     var row1 = addLabeledTextElement("Job Role", "jobRole", "jobRole");
     var row2 = addLabeledTextElement("Job Skills", "jobSkills", "jobSkills");
@@ -82,6 +84,12 @@ function addVideoChannelDescriptionElements() {
     container.appendChild(row1);
     container.appendChild(row2);
     container.appendChild(row3);
+}
+
+function addBlogIdeaElement() {
+    var container = document.getElementById("filter-container");
+    var row = addLabeledTextElement("Primary keyword", "primaryKeyword", "primaryKeyword");
+    container.appendChild(row);
 }
 
 function addLabeledTextElement(labelText, id, name) {

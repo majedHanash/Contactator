@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, url_for
 from flask_ckeditor import CKEditor
 from post_request import handle_post_request
+import string_helper
 
 load_dotenv()
 app = Flask(__name__)
@@ -14,7 +15,7 @@ ckeditor = CKEditor(app)
 def index():
     if request.method == "POST":
         result, data = handle_post_request(request)
-        result = result.replace('\n', '</br>')
+        result = string_helper.to_html_string(result)
         # return redirect(url_for("index", result=result))
         return render_template("index.html", result=result, data=data)
 

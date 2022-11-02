@@ -80,7 +80,8 @@
                                 <div class="dropdown use-case">
                                     <select title="Select your use case" class=" selectpicker form-select"
                                         onchange="addElements()" id="useCase" name="useCase">
-                                        <!--<option value="BlogIdea" {% if data is defined and data['useCase']=='BlogIdea' %} selected {%endif%}>Blog Idea & Outline</option>-->
+                                        <option value="BlogIdea" {% if data is defined and data['useCase']=='BlogIdea'
+                                            %} selected {%endif%}>Blog Idea & Outline</option>
                                         <!--<option value="BlogSection" {% if data is defined and data['useCase']=='BlogSection' %} selected {%endif%}>Blog Section Writing</option>-->
                                         <!--<option value="BrandName" {% if data is defined and data['useCase']=='BrandName' %} selected {%endif%}>Brand Name</option>-->
                                         <!--<option value="BusinessIdeaPitch" {% if data is defined and data['useCase']=='BusinessIdeaPitch' %} selected {%endif%}>Business Idea Pitch</option>-->
@@ -193,6 +194,10 @@
                 name.value = "{% if data is defined %} {{data['name']}} {% else %} {{''}} {%endif%}";
                 var cover = document.getElementById("cover");
                 cover.value = "{% if data is defined %} {{data['cover']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "BlogIdea") {
+                var primaryKeyword = document.getElementById("primaryKeyword");
+                primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {% else %} {{''}} {%endif%}";
             }
         }
     </script>

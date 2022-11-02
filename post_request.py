@@ -19,6 +19,8 @@ def handle_post_request(request):
         return handle_cover_letter_request(request), build_cover_letter_data(request)
     elif use_case == 'VideoChannelDescription':
         return handle_video_channel_description_request(request), build_video_channel_description_data(request)
+    elif use_case == 'BlogIdea':
+        return handle_blog_idea_request(request), build_blog_idea_data(request)
 
 
 def handle_basic_data(request):
@@ -106,4 +108,15 @@ def build_video_channel_description_data(request):
     data['category'] = request.form['category']
     data['name'] = request.form['name']
     data['cover'] = request.form['cover']
+    return data
+
+
+def handle_blog_idea_request(request):
+
+    return ml_back.generate_blog_idea(request.form['tone'], request.form['primaryKeyword'])
+
+
+def build_blog_idea_data(request):
+    data = handle_basic_data(request)
+    data['primaryKeyword'] = request.form['primaryKeyword']
     return data

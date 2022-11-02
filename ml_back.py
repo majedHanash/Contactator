@@ -41,6 +41,11 @@ def generate_video_channel_description(tone, category, name, cover):
         """Write me {tone} video channel description for {category} channel called {name}. We cover {cover}. """.format(tone=tone, category=category, name=name, cover=cover), max_tokens=100)
 
 
+def generate_blog_idea(tone, primary_keyword):
+    return generate_text(
+        """suggest {tone} blog idea {primary_keyword}""".format(tone=tone, primary_keyword=primary_keyword), max_tokens=100)
+
+
 def generate_text(userPrompt, max_tokens=15):
 
     response = openai.Completion.create(
