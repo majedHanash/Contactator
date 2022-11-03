@@ -32,6 +32,9 @@ function addElements() {
         addQuestionAnswerElement();
     else if (useCase == "KeywordsGenerator")
         addKeywordsGeneratorElement();
+    else if (useCase == "BusinessIdeas")
+        addBusinessIdeasElements();
+
 
 
 
@@ -183,3 +186,10 @@ function addKeywordsGeneratorElement() {
     container.appendChild(row);
 }
 
+function addBusinessIdeasElements() {
+    var container = document.getElementById("filter-container");
+    var row1 = addLabeledTextElement("Interest", "interest", "interest");
+    var row2 = addLabeledTextareaElement("Skills", "skills", "skills");
+    container.appendChild(row1);
+    container.appendChild(row2);
+}

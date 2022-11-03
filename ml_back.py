@@ -75,6 +75,10 @@ def generate_keywords_generator(tone, primary_keyword):
     return generate_text(
         """Generate {tone} related keywords to: {primary_keyword}""".format(tone=tone, primary_keyword=primary_keyword), max_tokens=100)
 
+def generate_business_ideas(tone, interest, skills):
+    return generate_text(
+        """Suggest {tone} business ideas for the field of {interest}. With skills: {skills}.""".format(tone=tone, interest=interest, skills=skills), max_tokens=150)
+
 
 def generate_text(userPrompt, max_tokens=15):
 

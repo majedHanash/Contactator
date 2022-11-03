@@ -85,7 +85,8 @@
                                         <!--<option value="BlogSection" {% if data is defined and data['useCase']=='BlogSection' %} selected {%endif%}>Blog Section Writing</option>-->
                                         <!--<option value="BrandName" {% if data is defined and data['useCase']=='BrandName' %} selected {%endif%}>Brand Name</option>-->
                                         <!--<option value="BusinessIdeaPitch" {% if data is defined and data['useCase']=='BusinessIdeaPitch' %} selected {%endif%}>Business Idea Pitch</option>-->
-                                        <!--<option value="BusinessIdeas" {% if data is defined and data['useCase']=='BusinessIdeas' %} selected {%endif%}>Business Ideas</option>-->
+                                        <option value="BusinessIdeas" {% if data is defined and
+                                             data['useCase']=='BusinessIdeas' %} selected {%endif%}>Business Ideas</option>
                                         <!--<option value="CallToAction" {% if data is defined and data['useCase']=='CallToAction' %} selected {%endif%}>Call To Action</option>-->
                                         <!--<option value="AIDA" {% if data is defined and data['useCase']=='AIDA' %} selected {%endif%}>Copywriting Framework: AIDA</option>-->
                                         <!--<option value="PAS" {% if data is defined and data['useCase']=='PAS' %} selected {%endif%}>Copywriting Framework: PAS</option>-->
@@ -237,6 +238,12 @@
             else if (useCase == "KeywordsGenerator") {
                 var primaryKeyword = document.getElementById("primaryKeyword");
                 primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "BusinessIdeas") {
+                var interest = document.getElementById("interest");
+                interest.value = "{% if data is defined %} {{data['interest']}} {% else %} {{''}} {%endif%}";
+                var skills = document.getElementById("skills");
+                skills.value = "{% if data is defined %} {{data['skills']}} {% else %} {{''}} {%endif%}";
             }
 
         }

@@ -33,6 +33,9 @@ def handle_post_request(request):
         return handle_question_answer_request(request), build_question_answer_data(request)
     elif use_case == 'KeywordsGenerator':
         return handle_keywords_generator_request(request), build_keywords_generator_data(request)
+    elif use_case == 'BusinessIdeas':
+        return handle_business_ideas_request(request), build_business_ideas_data(request)
+
 
 
 def handle_basic_data(request):
@@ -199,4 +202,16 @@ def handle_keywords_generator_request(request):
 def build_keywords_generator_data(request):
     data = handle_basic_data(request)
     data['primaryKeyword'] = request.form['primaryKeyword']
+    return data
+
+
+def handle_business_ideas_request(request):
+    
+    return ml_back.generate_business_ideas(request.form['tone'], request.form['interest'], request.form['skills'])
+
+
+def build_business_ideas_data(request):
+    data = handle_basic_data(request)
+    data['interest'] = request.form['interest']
+    data['skills'] = request.form['skills']
     return data
