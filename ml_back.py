@@ -61,14 +61,19 @@ def generate_tagline(tone, description):
         """suggest {tone} tagline phrase for {description}""".format(tone=tone, description=description), max_tokens=25)
 
 
-def generate_testimonial(tone, name, reviewTitle):
+def generate_testimonial(tone, name, review_title):
     return generate_text(
-        """suggest {tone} testimonial about {name}. {reviewTitle}""".format(tone=tone, name=name, reviewTitle=reviewTitle), max_tokens=150)
+        """suggest {tone} testimonial about {name}. {review_title}""".format(tone=tone, name=name, review_title=review_title), max_tokens=150)
 
 
 def generate_question_answer(tone, description):
     return generate_text(
         """write {tone} questions about the following text: {description}""".format(tone=tone, description=description), max_tokens=100)
+
+
+def generate_keywords_generator(tone, primary_keyword):
+    return generate_text(
+        """Generate {tone} related keywords to: {primary_keyword}""".format(tone=tone, primary_keyword=primary_keyword), max_tokens=100)
 
 
 def generate_text(userPrompt, max_tokens=15):

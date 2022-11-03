@@ -30,6 +30,8 @@ function addElements() {
         addTestimonialElements();
     else if (useCase == "QuestionAnswer")
         addQuestionAnswerElement();
+    else if (useCase == "KeywordsGenerator")
+        addKeywordsGeneratorElement();
 
 
 
@@ -172,6 +174,12 @@ function addLabeledTextareaElement(labelText, id, name, rows = 2) {
 function addQuestionAnswerElement() {
     var container = document.getElementById("filter-container");
     var row = addLabeledTextareaElement("Topic description", "description", "description", 4);
+    container.appendChild(row);
+}
+
+function addKeywordsGeneratorElement() {
+    var container = document.getElementById("filter-container");
+    var row = addLabeledTextElement("Primary keyword", "primaryKeyword", "primaryKeyword");
     container.appendChild(row);
 }
 

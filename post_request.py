@@ -31,6 +31,8 @@ def handle_post_request(request):
         return handle_testimonial_request(request), build_testimonial_data(request)
     elif use_case == 'QuestionAnswer':
         return handle_question_answer_request(request), build_question_answer_data(request)
+    elif use_case == 'KeywordsGenerator':
+        return handle_keywords_generator_request(request), build_keywords_generator_data(request)
 
 
 def handle_basic_data(request):
@@ -186,4 +188,15 @@ def handle_question_answer_request(request):
 def build_question_answer_data(request):
     data = handle_basic_data(request)
     data['description'] = request.form['description']
+    return data
+
+
+def handle_keywords_generator_request(request):
+
+    return ml_back.generate_keywords_generator(request.form['tone'], request.form['primaryKeyword'])
+
+
+def build_keywords_generator_data(request):
+    data = handle_basic_data(request)
+    data['primaryKeyword'] = request.form['primaryKeyword']
     return data

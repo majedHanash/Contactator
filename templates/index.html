@@ -103,7 +103,9 @@
                                             data['useCase']=='JobDescription' %} selected {%endif%}>Job Description
                                         </option>
                                         <!--<option value="KeywordsExtractor" {% if data is defined and data['useCase']=='KeywordsExtractor' %} selected {%endif%}>Keywords Extractor</option>-->
-                                        <!--<option value="KeywordsGenerator" {% if data is defined and data['useCase']=='KeywordsGenerator' %} selected {%endif%}>Keywords Generator</option>-->
+                                        <option value="KeywordsGenerator" {% if data is defined and
+                                            data['useCase']=='KeywordsGenerator' %} selected {%endif%}>Keywords
+                                            Generator</option>
                                         <!--<option value="LandingPage" {% if data is defined and data['useCase']=='LandingPage' %} selected {%endif%}>Landing Page & Website Copies</option>-->
                                         <!--<option value="MagicCommand" {% if data is defined and data['useCase']=='MagicCommand' %} selected {%endif%}>Magic Command</option>-->
                                         <!--<option value="Post" {% if data is defined and data['useCase']=='Post' %} selected {%endif%}>Post & Caption Ideas</option>-->
@@ -226,11 +228,15 @@
                 var name = document.getElementById("name");
                 name.value = "{% if data is defined %} {{data['name']}} {% else %} {{''}} {%endif%}";
                 var reviewTitle = document.getElementById("reviewTitle");
-                name.reviewTitle = "{% if data is defined %} {{data['reviewTitle']}} {% else %} {{''}} {%endif%}";
+                reviewTitle.value = "{% if data is defined %} {{data['reviewTitle']}} {% else %} {{''}} {%endif%}";
             }
             else if (useCase == "QuestionAnswer") {
                 var description = document.getElementById("description");
-                name.description = "{% if data is defined %} {{data['description']}} {% else %} {{''}} {%endif%}";
+                description.value = "{% if data is defined %} {{data['description']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "KeywordsGenerator") {
+                var primaryKeyword = document.getElementById("primaryKeyword");
+                primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {% else %} {{''}} {%endif%}";
             }
 
         }
