@@ -171,87 +171,176 @@
     <script>
         function handleOnLoad() {
             addElements();
-            var useCase = document.getElementById("useCase").value;
-            if (useCase == "Email") {
-                var keyPoints = document.getElementById("keyPoints");
-                keyPoints.value = "{% if data is defined %} {{data['keyPoints']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "SMS") {
-                var context = document.getElementById("context");
-                context.value = "{% if data is defined %} {{data['context']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "Song") {
-                var idea = document.getElementById("idea");
-                idea.value = "{% if data is defined %} {{data['idea']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "Story") {
-                var idea = document.getElementById("idea");
-                idea.value = "{% if data is defined %} {{data['idea']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "Facebook") {
-                var productName = document.getElementById("productName");
-                productName.value = "{% if data is defined %} {{data['productName']}} {% else %} {{''}} {%endif%}";
-                var productDescription = document.getElementById("productDescription");
-                productDescription.value = "{% if data is defined %} {{data['productDescription']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "CoveLetter") {
-                var jobRole = document.getElementById("jobRole");
-                jobRole.value = "{% if data is defined %} {{data['jobRole']}} {% else %} {{''}} {%endif%}";
-                var jobSkills = document.getElementById("jobSkills");
-                jobSkills.value = "{% if data is defined %} {{data['jobSkills']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "VideoChannelDescription") {
-                var category = document.getElementById("category");
-                category.value = "{% if data is defined %} {{data['category']}} {% else %} {{''}} {%endif%}";
-                var name = document.getElementById("name");
-                name.value = "{% if data is defined %} {{data['name']}} {% else %} {{''}} {%endif%}";
-                var cover = document.getElementById("cover");
-                cover.value = "{% if data is defined %} {{data['cover']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "BlogIdea") {
-                var primaryKeyword = document.getElementById("primaryKeyword");
-                primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "InterviewQuestions") {
-                var intervieweeBio = document.getElementById("intervieweeBio");
-                intervieweeBio.value = "{% if data is defined %} {{data['intervieweeBio']}} {% else %} {{''}} {%endif%}";
-                var interviewContext = document.getElementById("interviewContext");
-                interviewContext.value = "{% if data is defined %} {{data['interviewContext']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "JobDescription") {
-                var role = document.getElementById("role");
-                role.value = "{% if data is defined %} {{data['role']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "Tagline") {
-                var description = document.getElementById("description");
-                description.value = "{% if data is defined %} {{data['description']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "Testimonial") {
-                var name = document.getElementById("name");
-                name.value = "{% if data is defined %} {{data['name']}} {% else %} {{''}} {%endif%}";
-                var reviewTitle = document.getElementById("reviewTitle");
-                reviewTitle.value = "{% if data is defined %} {{data['reviewTitle']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "QuestionAnswer") {
-                var description = document.getElementById("description");
-                description.value = "{% if data is defined %} {{data['description']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "KeywordsGenerator") {
-                var primaryKeyword = document.getElementById("primaryKeyword");
-                primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "BusinessIdeas") {
-                var interest = document.getElementById("interest");
-                interest.value = "{% if data is defined %} {{data['interest']}} {% else %} {{''}} {%endif%}";
-                var skills = document.getElementById("skills");
-                skills.value = "{% if data is defined %} {{data['skills']}} {% else %} {{''}} {%endif%}";
-            }
-            else if (useCase == "PostIdea") {
-                var topic = document.getElementById("topic");
-                topic.value = "{% if data is defined %} {{data['topic']}} {% else %} {{''}} {%endif%}";
-            }
-
+            bindElements();
+        
         }
+        
+        function bindElements()
+        {
+            var useCase = document.getElementById("useCase").value;
+            switch(useCase)
+            {
+                case "Email":
+                    bindEmailElement();
+                    break;
+                case "SMS":
+                    bindSMSElement();
+                    break;
+                case "Song":
+                    bindSongElement();
+                    break;
+                case "Story":
+                    bindStoryElement();
+                    break;
+                case "Facebook":
+                    bindFacebookElement();
+                    break;
+                case "CoverLetter":
+                    bindCoverLetterElements();
+                    break;
+                case "VideoChannelDescription":
+                    bindVideoChannelDescriptionElements();
+                    break;
+                case "BlogIdea":
+                    bindBlogIdeaElement();
+                    break;
+                case "InterviewQuestions":
+                    bindInterviewQuestionsElements();
+                    break;
+                case "JobDescription":
+                    bindJobDescriptionElement();
+                    break;
+                case "Tagline":
+                    bindTaglineElement();
+                    break;
+                case "Testimonial":
+                    bindTestimonialElements();
+                    break;
+                case "QuestionAnswer":
+                    bindQuestionAnswerElement();
+                    break;
+                case "KeywordsGenerator":
+                    bindKeywordsGeneratorElement();
+                    break;
+                case "BusinessIdeas":
+                    bindBusinessIdeasElements();
+                    break;
+                case "PostIdea":
+                    bindPostIdeaElement();
+                    break;
+            }
+        }
+        
+        function bindEmailElement()
+        {
+            var keyPoints = document.getElementById("keyPoints");
+            keyPoints.value = "{% if data is defined %} {{data['keyPoints']}} {%endif%}";
+        }
+
+        function bindSMSElement()
+        {
+            var context = document.getElementById("context");
+                context.value = "{% if data is defined %} {{data['context']}} {%endif%}";
+        }
+        
+        function bindSongElement()
+        {
+            var idea = document.getElementById("idea");
+            idea.value = "{% if data is defined %} {{data['idea']}} {%endif%}";
+        }
+
+        function bindStoryElement()
+        {
+            var idea = document.getElementById("idea");
+                idea.value = "{% if data is defined %} {{data['idea']}} {%endif%}";
+        }
+
+        function bindFacebookElement()
+        {
+            var productName = document.getElementById("productName");
+            productName.value = "{% if data is defined %} {{data['productName']}} {%endif%}";
+            var productDescription = document.getElementById("productDescription");
+            productDescription.value = "{% if data is defined %} {{data['productDescription']}} {%endif%}";
+        }
+        
+        function bindCoverLetterElements()
+        {
+            var jobRole = document.getElementById("jobRole");
+            jobRole.value = "{% if data is defined %} {{data['jobRole']}} {%endif%}";
+            var jobSkills = document.getElementById("jobSkills");
+            jobSkills.value = "{% if data is defined %} {{data['jobSkills']}} {%endif%}";
+        }
+
+        function bindVideoChannelDescriptionElements()
+        {
+            var category = document.getElementById("category");
+            category.value = "{% if data is defined %} {{data['category']}} {%endif%}";
+            var name = document.getElementById("name");
+            name.value = "{% if data is defined %} {{data['name']}} {%endif%}";
+            var cover = document.getElementById("cover");
+            cover.value = "{% if data is defined %} {{data['cover']}} {%endif%}";
+        }
+
+        function bindBlogIdeaElement()
+        {
+            var primaryKeyword = document.getElementById("primaryKeyword");
+            primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {%endif%}";
+        }
+
+        function bindInterviewQuestionsElements()
+        {
+            var intervieweeBio = document.getElementById("intervieweeBio");
+                intervieweeBio.value = "{% if data is defined %} {{data['intervieweeBio']}} {%endif%}";
+                var interviewContext = document.getElementById("interviewContext");
+                interviewContext.value = "{% if data is defined %} {{data['interviewContext']}} {%endif%}";
+        }
+
+        function bindJobDescriptionElement()
+        {
+            var role = document.getElementById("role");
+            role.value = "{% if data is defined %} {{data['role']}} {%endif%}";
+        }
+
+        function bindTaglineElement()
+        {
+            var description = document.getElementById("description");
+            description.value = "{% if data is defined %} {{data['description']}} {%endif%}";
+        }
+
+        function bindTestimonialElements()
+        {
+            var name = document.getElementById("name");
+            name.value = "{% if data is defined %} {{data['name']}} {%endif%}";
+            var reviewTitle = document.getElementById("reviewTitle");
+            reviewTitle.value = "{% if data is defined %} {{data['reviewTitle']}} {%endif%}";
+        }
+
+        function bindQuestionAnswerElement()
+        {
+            var description = document.getElementById("description");
+            description.value = "{% if data is defined %} {{data['description']}} {%endif%}";
+        }
+
+        function bindKeywordsGeneratorElement()
+        {
+            var primaryKeyword = document.getElementById("primaryKeyword");
+            primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {%endif%}";
+        }
+
+        function bindBusinessIdeasElements()
+        {
+            var interest = document.getElementById("interest");
+            interest.value = "{% if data is defined %} {{data['interest']}} {%endif%}";
+            var skills = document.getElementById("skills");
+            skills.value = "{% if data is defined %} {{data['skills']}} {%endif%}";
+        }
+
+        function bindPostIdeaElement()
+        {
+            var topic = document.getElementById("topic");
+            topic.value = "{% if data is defined %} {{data['topic']}} {%endif%}";
+        }
+
     </script>
 
 

@@ -3,38 +3,58 @@ document.onload = handleOnLoad();
 function addElements() {
     removeAllRemovables();
     var useCase = document.getElementById("useCase").value;
-    if (useCase == "Email")
-        addEmailElement();
-    else if (useCase == "SMS")
-        addSMSElement();
-    else if (useCase == "Song")
-        addSongElement();
-    else if (useCase == "Story")
-        addStoryElement();
-    else if (useCase == "Facebook")
-        addFacebookElement();
-    else if (useCase == "CoverLetter")
-        addCoverLetterElements();
-    else if (useCase == "VideoChannelDescription")
-        addVideoChannelDescriptionElements();
-    else if (useCase == "BlogIdea")
-        addBlogIdeaElement();
-    else if (useCase == "InterviewQuestions")
-        addInterviewQuestionsElements();
-    else if (useCase == "JobDescription")
-        addJobDescriptionElement();
-    else if (useCase == "Tagline")
-        addTaglineElement();
-    else if (useCase == "Testimonial")
-        addTestimonialElements();
-    else if (useCase == "QuestionAnswer")
-        addQuestionAnswerElement();
-    else if (useCase == "KeywordsGenerator")
-        addKeywordsGeneratorElement();
-    else if (useCase == "BusinessIdeas")
-        addBusinessIdeasElements();
-    else if (useCase == "PostIdea")
-        addPostIdeaElement();
+
+    switch(useCase)
+    {
+        case "Email":
+            addEmailElement();
+            break;
+        case "SMS":
+            addSMSElement();
+            break;
+        case "Song":
+            addSongElement();
+            break;
+        case "Story":
+            addStoryElement();
+            break;
+        case "Facebook":
+            addFacebookElement();
+            break;
+        case "CoverLetter":
+            addCoverLetterElements();
+            break;
+        case "VideoChannelDescription":
+            addVideoChannelDescriptionElements();
+            break;
+        case "BlogIdea":
+            addBlogIdeaElement();
+            break;
+        case "InterviewQuestions":
+            addInterviewQuestionsElements();
+            break;
+        case "JobDescription":
+            addJobDescriptionElement();
+            break;
+        case "Tagline":
+            addTaglineElement();
+            break;
+        case "Testimonial":
+            addTestimonialElements();
+            break;
+        case "QuestionAnswer":
+            addQuestionAnswerElement();
+            break;
+        case "KeywordsGenerator":
+            addKeywordsGeneratorElement();
+            break;
+        case "BusinessIdeas":
+            addBusinessIdeasElements();
+            break;
+        case "PostIdea":
+            addPostIdeaElement();
+            break;
+    }
 
 }
 
@@ -91,7 +111,7 @@ function addVideoChannelDescriptionElements() {
     var container = document.getElementById("filter-container");
     var row1 = addLabeledTextElement("Category", "category", "category");
     var row2 = addLabeledTextElement("Channel name", "name", "name");
-    var row3 = addLabeledTextElement("What to cover", "cover", "cover");
+    var row3 = addLabeledTextareaElement("What to cover", "cover", "cover");
 
     container.appendChild(row1);
     container.appendChild(row2);
@@ -132,46 +152,6 @@ function addTestimonialElements() {
     container.appendChild(row2);
 }
 
-
-function addLabeledTextElement(labelText, id, name) {
-    var row = document.createElement("div");
-    row.classList.add("row");
-    row.classList.add("removable");
-    var formGroup = document.createElement("div")
-    formGroup.classList.add("form-group");
-    var label = document.createElement("label");
-    label.innerHTML = labelText;
-    var text = document.createElement("input");
-    text.classList.add("form-control");
-    text.type = "text";
-    text.id = id;
-    text.name = name;
-    formGroup.appendChild(label);
-    formGroup.appendChild(text);
-    row.appendChild(formGroup);
-    return row
-}
-
-function addLabeledTextareaElement(labelText, id, name, rows = 2) {
-    var row = document.createElement("div");
-    row.classList.add("row");
-    row.classList.add("removable");
-    var formGroup = document.createElement("div")
-    formGroup.classList.add("form-group");
-    var label = document.createElement("label");
-    label.innerHTML = labelText;
-    var text = document.createElement("textarea");
-    text.classList.add("form-control");
-    text.rows = rows;
-    text.id = id;
-    text.name = name;
-    formGroup.appendChild(label);
-    formGroup.appendChild(text);
-    row.appendChild(formGroup);
-    return row;
-}
-
-
 function addQuestionAnswerElement() {
     var container = document.getElementById("filter-container");
     var row = addLabeledTextareaElement("Topic description", "description", "description", 4);
@@ -194,6 +174,46 @@ function addBusinessIdeasElements() {
 
 function addPostIdeaElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextElement("Topic", "topic", "topic");
+    var row = addLabeledTextareaElement("Topic", "topic", "topic");
     container.appendChild(row);
+}
+
+function addLabeledTextElement(labelText, id, name) {
+    var row = document.createElement("div");
+    row.classList.add("row");
+    row.classList.add("removable");
+    var formGroup = document.createElement("div")
+    formGroup.classList.add("form-group");
+    var label = document.createElement("label");
+    label.innerHTML = labelText;
+    var text = document.createElement("input");
+    text.classList.add("form-control");
+    text.type = "text";
+    text.id = id;
+    text.name = name;
+    text.required = true;
+    formGroup.appendChild(label);
+    formGroup.appendChild(text);
+    row.appendChild(formGroup);
+    return row
+}
+
+function addLabeledTextareaElement(labelText, id, name, rows = 2) {
+    var row = document.createElement("div");
+    row.classList.add("row");
+    row.classList.add("removable");
+    var formGroup = document.createElement("div")
+    formGroup.classList.add("form-group");
+    var label = document.createElement("label");
+    label.innerHTML = labelText;
+    var text = document.createElement("textarea");
+    text.classList.add("form-control");
+    text.rows = rows;
+    text.id = id;
+    text.name = name;
+    text.required = true;
+    formGroup.appendChild(label);
+    formGroup.appendChild(text);
+    row.appendChild(formGroup);
+    return row;
 }
