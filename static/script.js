@@ -4,8 +4,7 @@ function addElements() {
     removeAllRemovables();
     var useCase = document.getElementById("useCase").value;
 
-    switch(useCase)
-    {
+    switch (useCase) {
         case "Email":
             addEmailElement();
             break;
@@ -133,7 +132,7 @@ function addBlogIdeaElement() {
 function addInterviewQuestionsElements() {
     var container = document.getElementById("filter-container");
     var row1 = addLabeledTextareaElement("Interviewee bio", "intervieweeBio", "intervieweeBio", 3);
-    var row2 = addLabeledTextareaElement("Interview context", "interviweContext", "interviewContext");
+    var row2 = addLabeledTextareaElement("Interview context", "interviewContext", "interviewContext");
     container.appendChild(row1);
     container.appendChild(row2);
 }

@@ -296,9 +296,9 @@
         function bindInterviewQuestionsElements()
         {
             var intervieweeBio = document.getElementById("intervieweeBio");
-                intervieweeBio.value = "{% if data is defined %} {{data['intervieweeBio']}} {%endif%}";
-                var interviewContext = document.getElementById("interviewContext");
-                interviewContext.value = "{% if data is defined %} {{data['interviewContext']}} {%endif%}";
+            intervieweeBio.value = "{% if data is defined %} {{data['intervieweeBio']}} {%endif%}";
+            var interviewContext = document.getElementById("interviewContext");
+            interviewContext.value = "{% if data is defined %} {{data['interviewContext']}} {%endif%}";
         }
 
         function bindJobDescriptionElement()
