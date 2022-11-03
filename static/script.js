@@ -1,7 +1,6 @@
 document.onload = handleOnLoad();
 
 function addElements() {
-    console.log("hi");
     removeAllRemovables();
     var useCase = document.getElementById("useCase").value;
     if (useCase == "Email")
@@ -34,9 +33,8 @@ function addElements() {
         addKeywordsGeneratorElement();
     else if (useCase == "BusinessIdeas")
         addBusinessIdeasElements();
-
-
-
+    else if (useCase == "PostIdea")
+        addPostIdeaElement();
 
 }
 
@@ -192,4 +190,10 @@ function addBusinessIdeasElements() {
     var row2 = addLabeledTextareaElement("Skills", "skills", "skills");
     container.appendChild(row1);
     container.appendChild(row2);
+}
+
+function addPostIdeaElement() {
+    var container = document.getElementById("filter-container");
+    var row = addLabeledTextElement("Topic", "topic", "topic");
+    container.appendChild(row);
 }

@@ -109,7 +109,8 @@
                                             Generator</option>
                                         <!--<option value="LandingPage" {% if data is defined and data['useCase']=='LandingPage' %} selected {%endif%}>Landing Page & Website Copies</option>-->
                                         <!--<option value="MagicCommand" {% if data is defined and data['useCase']=='MagicCommand' %} selected {%endif%}>Magic Command</option>-->
-                                        <!--<option value="Post" {% if data is defined and data['useCase']=='Post' %} selected {%endif%}>Post & Caption Ideas</option>-->
+                                        <option value="PostIdea" {% if data is defined and 
+                                            data['useCase']=='PostIdea' %} selected {%endif%}>Post & Caption Ideas</option>
                                         <!--<option value="ProductDescription" {% if data is defined and data['useCase']=='ProductDescription' %} selected {%endif%}>Product Description</option>-->
                                         <!--<option value="ProductDescriptionBullet" {% if data is defined and data['useCase']=='ProductDescriptionBullet' %} selected {%endif%}>Product Description (bullet points)</option>-->
                                         <!--<option value="ProfileBio" {% if data is defined and data['useCase']=='ProfileBio' %} selected {%endif%}>Profile Bio</option>-->
@@ -244,6 +245,10 @@
                 interest.value = "{% if data is defined %} {{data['interest']}} {% else %} {{''}} {%endif%}";
                 var skills = document.getElementById("skills");
                 skills.value = "{% if data is defined %} {{data['skills']}} {% else %} {{''}} {%endif%}";
+            }
+            else if (useCase == "PostIdea") {
+                var topic = document.getElementById("topic");
+                topic.value = "{% if data is defined %} {{data['topic']}} {% else %} {{''}} {%endif%}";
             }
 
         }
