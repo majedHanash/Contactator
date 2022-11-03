@@ -54,6 +54,9 @@ function addElements() {
         case "PostIdea":
             addPostIdeaElement();
             break;
+        case "SEOMetaTitle":
+            addSEOMetaTitleElement();
+            break;
     }
 
 }
@@ -177,6 +180,13 @@ function addPostIdeaElement() {
     var row = addLabeledTextareaElement("Topic", "topic", "topic");
     container.appendChild(row);
 }
+
+function addSEOMetaTitleElement() {
+    var container = document.getElementById("filter-container");
+    var row = addLabeledTextElement("Target keywords", "keywords", "keywords");
+    container.appendChild(row);
+}
+
 
 function addLabeledTextElement(labelText, id, name) {
     var row = document.createElement("div");

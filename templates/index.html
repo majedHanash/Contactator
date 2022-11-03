@@ -119,7 +119,7 @@
                                         </option>
                                         <!--<option value="ReplyToReviews" {% if data is defined and data['useCase']=='ReplyToReviews' %} selected {%endif%}>Reply to Reviews & Messages</option>-->
                                         <!--<option value="SEODescription" {% if data is defined and data['useCase']=='SEODescription' %} selected {%endif%}>SEO Meta Description</option>-->
-                                        <!--<option value="SEOTitle" {% if data is defined and data['useCase']=='SEOTitle' %} selected {%endif%}>SEO Meta Title</option>-->
+                                        <option value="SEOMetaTitle" {% if data is defined and data['useCase']=='SEOMetaTitle' %} selected {%endif%}>SEO Meta Title</option>
                                         <option value="SMS" {% if data is defined and data['useCase']=='SMS' %} selected
                                             {%endif%}>SMS & Notifications</option>ß
                                         <option value="Song" {% if data is defined and data['useCase']=='Song' %}
@@ -227,6 +227,9 @@
                     break;
                 case "PostIdea":
                     bindPostIdeaElement();
+                    break;
+                case "SEOMetaTitle":
+                bindSEOMetaTitleElement();
                     break;
             }
         }
@@ -339,6 +342,12 @@
         {
             var topic = document.getElementById("topic");
             topic.value = "{% if data is defined %} {{data['topic']}} {%endif%}";
+        }
+
+        function bindSEOMetaTitleElement()
+        {
+            var keywords = document.getElementById("keywords");
+            keywords.value = "{% if data is defined %} {{data['keywords']}} {%endif%}";
         }
 
     </script>

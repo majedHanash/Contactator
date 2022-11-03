@@ -37,6 +37,8 @@ def handle_post_request(request):
         return handle_business_ideas_request(request), build_business_ideas_data(request)
     elif use_case == 'PostIdea':
         return handle_post_idea_request(request), build_post_idea_data(request)
+    elif use_case == 'SEOMetaTitle':
+        return handle_seo_meta_title_request(request), build_seo_meta_title_data(request)
 
 
 
@@ -227,4 +229,15 @@ def handle_post_idea_request(request):
 def build_post_idea_data(request):
     data = handle_basic_data(request)
     data['topic'] = request.form['topic']
+    return data
+
+
+def handle_seo_meta_title_request(request):
+    
+    return ml_back.generate_seo_meta_title(request.form['tone'], request.form['keywords'])
+
+
+def build_seo_meta_title_data(request):
+    data = handle_basic_data(request)
+    data['keywords'] = request.form['keywords']
     return data

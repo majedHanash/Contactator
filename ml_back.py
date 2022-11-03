@@ -84,6 +84,13 @@ def generate_business_ideas(tone, interest, skills):
 def generate_post_idea(tone, topic):
     return generate_text(
         """write {tone} (post/ caption) idea about topic: {topic}.""".format(tone=tone, topic=topic), max_tokens=150)
+
+
+def generate_seo_meta_title(tone, keywords):
+    return generate_text(
+        """Generate {tone} SEO meta title for keywords: {keywords}.""".format(tone=tone, keywords=keywords), max_tokens=60)
+
+
 def generate_text(userPrompt, max_tokens=15):
 
     response = openai.Completion.create(
