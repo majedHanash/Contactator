@@ -57,6 +57,9 @@ function addElements() {
         case "SEOMetaTitle":
             addSEOMetaTitleElement();
             break;
+        case "ProductDescription":
+            addProductDescriptionElements();
+            break;
     }
 
 }
@@ -187,6 +190,13 @@ function addSEOMetaTitleElement() {
     container.appendChild(row);
 }
 
+function addProductDescriptionElements() {
+    var container = document.getElementById("filter-container");
+    var row1 = addLabeledTextElement("Product Name", "name", "name");
+    var row2 = addLabeledTextareaElement("About product", "about", "about", 3);
+    container.appendChild(row1);
+    container.appendChild(row2);
+}
 
 function addLabeledTextElement(labelText, id, name) {
     var row = document.createElement("div");

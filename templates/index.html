@@ -111,7 +111,7 @@
                                         <!--<option value="MagicCommand" {% if data is defined and data['useCase']=='MagicCommand' %} selected {%endif%}>Magic Command</option>-->
                                         <option value="PostIdea" {% if data is defined and 
                                             data['useCase']=='PostIdea' %} selected {%endif%}>Post & Caption Ideas</option>
-                                        <!--<option value="ProductDescription" {% if data is defined and data['useCase']=='ProductDescription' %} selected {%endif%}>Product Description</option>-->
+                                        <option value="ProductDescription" {% if data is defined and data['useCase']=='ProductDescription' %} selected {%endif%}>Product Description</option>
                                         <!--<option value="ProductDescriptionBullet" {% if data is defined and data['useCase']=='ProductDescriptionBullet' %} selected {%endif%}>Product Description (bullet points)</option>-->
                                         <!--<option value="ProfileBio" {% if data is defined and data['useCase']=='ProfileBio' %} selected {%endif%}>Profile Bio</option>-->
                                         <option value="QuestionAnswer" {% if data is defined and
@@ -231,6 +231,9 @@
                 case "SEOMetaTitle":
                 bindSEOMetaTitleElement();
                     break;
+                case "ProductDescription":
+                bindProductDescriptionElements();
+                    break;
             }
         }
         
@@ -348,6 +351,14 @@
         {
             var keywords = document.getElementById("keywords");
             keywords.value = "{% if data is defined %} {{data['keywords']}} {%endif%}";
+        }
+
+        function bindProductDescriptionElements()
+        {
+            var name = document.getElementById("name");
+            name.value = "{% if data is defined %} {{data['name']}} {%endif%}";
+            var about = document.getElementById("about");
+            about.value = "{% if data is defined %} {{data['about']}} {%endif%}";
         }
 
     </script>

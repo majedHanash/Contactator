@@ -39,6 +39,8 @@ def handle_post_request(request):
         return handle_post_idea_request(request), build_post_idea_data(request)
     elif use_case == 'SEOMetaTitle':
         return handle_seo_meta_title_request(request), build_seo_meta_title_data(request)
+    elif use_case == 'ProductDescription':
+        return handle_product_description_request(request), build_product_description_data(request)
 
 
 
@@ -240,4 +242,15 @@ def handle_seo_meta_title_request(request):
 def build_seo_meta_title_data(request):
     data = handle_basic_data(request)
     data['keywords'] = request.form['keywords']
+    return data
+
+def handle_product_description_request(request):
+    
+    return ml_back.generate_product_description(request.form['tone'], request.form['name'], request.form['about'])
+
+
+def build_product_description_data(request):
+    data = handle_basic_data(request)
+    data['name'] = request.form['name']
+    data['about'] = request.form['about']
     return data

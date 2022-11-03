@@ -91,6 +91,11 @@ def generate_seo_meta_title(tone, keywords):
         """Generate {tone} SEO meta title for keywords: {keywords}.""".format(tone=tone, keywords=keywords), max_tokens=60)
 
 
+def generate_product_description(tone, name, about):
+    return generate_text(
+        """Write {tone} product description for a product called: {name}. {about}""".format(tone=tone, name=name, about=about), max_tokens=200)
+
+
 def generate_text(userPrompt, max_tokens=15):
 
     response = openai.Completion.create(
