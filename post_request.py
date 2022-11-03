@@ -244,6 +244,7 @@ def build_seo_meta_title_data(request):
     data['keywords'] = request.form['keywords']
     return data
 
+
 def handle_product_description_request(request):
     
     return ml_back.generate_product_description(request.form['tone'], request.form['name'], request.form['about'])

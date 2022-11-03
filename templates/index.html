@@ -86,7 +86,8 @@
                                         <!--<option value="BrandName" {% if data is defined and data['useCase']=='BrandName' %} selected {%endif%}>Brand Name</option>-->
                                         <!--<option value="BusinessIdeaPitch" {% if data is defined and data['useCase']=='BusinessIdeaPitch' %} selected {%endif%}>Business Idea Pitch</option>-->
                                         <option value="BusinessIdeas" {% if data is defined and
-                                             data['useCase']=='BusinessIdeas' %} selected {%endif%}>Business Ideas</option>
+                                            data['useCase']=='BusinessIdeas' %} selected {%endif%}>Business Ideas
+                                        </option>
                                         <!--<option value="CallToAction" {% if data is defined and data['useCase']=='CallToAction' %} selected {%endif%}>Call To Action</option>-->
                                         <!--<option value="AIDA" {% if data is defined and data['useCase']=='AIDA' %} selected {%endif%}>Copywriting Framework: AIDA</option>-->
                                         <!--<option value="PAS" {% if data is defined and data['useCase']=='PAS' %} selected {%endif%}>Copywriting Framework: PAS</option>-->
@@ -109,9 +110,11 @@
                                             Generator</option>
                                         <!--<option value="LandingPage" {% if data is defined and data['useCase']=='LandingPage' %} selected {%endif%}>Landing Page & Website Copies</option>-->
                                         <!--<option value="MagicCommand" {% if data is defined and data['useCase']=='MagicCommand' %} selected {%endif%}>Magic Command</option>-->
-                                        <option value="PostIdea" {% if data is defined and 
-                                            data['useCase']=='PostIdea' %} selected {%endif%}>Post & Caption Ideas</option>
-                                        <option value="ProductDescription" {% if data is defined and data['useCase']=='ProductDescription' %} selected {%endif%}>Product Description</option>
+                                        <option value="PostIdea" {% if data is defined and data['useCase']=='PostIdea'
+                                            %} selected {%endif%}>Post & Caption Ideas</option>
+                                        <option value="ProductDescription" {% if data is defined and
+                                            data['useCase']=='ProductDescription' %} selected {%endif%}>Product
+                                            Description</option>
                                         <!--<option value="ProductDescriptionBullet" {% if data is defined and data['useCase']=='ProductDescriptionBullet' %} selected {%endif%}>Product Description (bullet points)</option>-->
                                         <!--<option value="ProfileBio" {% if data is defined and data['useCase']=='ProfileBio' %} selected {%endif%}>Profile Bio</option>-->
                                         <option value="QuestionAnswer" {% if data is defined and
@@ -119,7 +122,9 @@
                                         </option>
                                         <!--<option value="ReplyToReviews" {% if data is defined and data['useCase']=='ReplyToReviews' %} selected {%endif%}>Reply to Reviews & Messages</option>-->
                                         <!--<option value="SEODescription" {% if data is defined and data['useCase']=='SEODescription' %} selected {%endif%}>SEO Meta Description</option>-->
-                                        <option value="SEOMetaTitle" {% if data is defined and data['useCase']=='SEOMetaTitle' %} selected {%endif%}>SEO Meta Title</option>
+                                        <option value="SEOMetaTitle" {% if data is defined and
+                                            data['useCase']=='SEOMetaTitle' %} selected {%endif%}>SEO Meta Title
+                                        </option>
                                         <option value="SMS" {% if data is defined and data['useCase']=='SMS' %} selected
                                             {%endif%}>SMS & Notifications</option>ß
                                         <option value="Song" {% if data is defined and data['useCase']=='Song' %}
@@ -172,14 +177,12 @@
         function handleOnLoad() {
             addElements();
             bindElements();
-        
+
         }
-        
-        function bindElements()
-        {
+
+        function bindElements() {
             var useCase = document.getElementById("useCase").value;
-            switch(useCase)
-            {
+            switch (useCase) {
                 case "Email":
                     bindEmailElement();
                     break;
@@ -229,136 +232,118 @@
                     bindPostIdeaElement();
                     break;
                 case "SEOMetaTitle":
-                bindSEOMetaTitleElement();
+                    bindSEOMetaTitleElement();
                     break;
                 case "ProductDescription":
-                bindProductDescriptionElements();
+                    bindProductDescriptionElements();
                     break;
             }
         }
-        
-        function bindEmailElement()
-        {
+
+        function bindEmailElement() {
             var keyPoints = document.getElementById("keyPoints");
-            keyPoints.value = "{% if data is defined %} {{data['keyPoints']}} {%endif%}";
+            keyPoints.value = "{% if data is defined %}{{data['keyPoints']}}{%endif%}";
         }
 
-        function bindSMSElement()
-        {
+        function bindSMSElement() {
             var context = document.getElementById("context");
-                context.value = "{% if data is defined %} {{data['context']}} {%endif%}";
-        }
-        
-        function bindSongElement()
-        {
-            var idea = document.getElementById("idea");
-            idea.value = "{% if data is defined %} {{data['idea']}} {%endif%}";
+            context.value = "{% if data is defined %}{{data['context']}}{%endif%}";
         }
 
-        function bindStoryElement()
-        {
+        function bindSongElement() {
             var idea = document.getElementById("idea");
-                idea.value = "{% if data is defined %} {{data['idea']}} {%endif%}";
+            idea.value = "{% if data is defined %}{{data['idea']}}{%endif%}";
         }
 
-        function bindFacebookElement()
-        {
+        function bindStoryElement() {
+            var idea = document.getElementById("idea");
+            idea.value = "{% if data is defined %}{{data['idea']}}{%endif%}";
+        }
+
+        function bindFacebookElement() {
             var productName = document.getElementById("productName");
-            productName.value = "{% if data is defined %} {{data['productName']}} {%endif%}";
+            productName.value = "{% if data is defined %}{{data['productName']}}{%endif%}";
             var productDescription = document.getElementById("productDescription");
-            productDescription.value = "{% if data is defined %} {{data['productDescription']}} {%endif%}";
+            productDescription.value = "{% if data is defined %}{{data['productDescription']}}{%endif%}";
         }
-        
-        function bindCoverLetterElements()
-        {
+
+        function bindCoverLetterElements() {
             var jobRole = document.getElementById("jobRole");
-            jobRole.value = "{% if data is defined %} {{data['jobRole']}} {%endif%}";
+            jobRole.value = "{% if data is defined %}{{data['jobRole']}}{%endif%}";
             var jobSkills = document.getElementById("jobSkills");
-            jobSkills.value = "{% if data is defined %} {{data['jobSkills']}} {%endif%}";
+            jobSkills.value = "{% if data is defined %}{{data['jobSkills']}}{%endif%}";
         }
 
-        function bindVideoChannelDescriptionElements()
-        {
+        function bindVideoChannelDescriptionElements() {
             var category = document.getElementById("category");
-            category.value = "{% if data is defined %} {{data['category']}} {%endif%}";
+            category.value = "{% if data is defined %}{{data['category']}}{%endif%}";
             var name = document.getElementById("name");
-            name.value = "{% if data is defined %} {{data['name']}} {%endif%}";
+            name.value = "{% if data is defined %}{{data['name']}}{%endif%}";
             var cover = document.getElementById("cover");
-            cover.value = "{% if data is defined %} {{data['cover']}} {%endif%}";
+            cover.value = "{% if data is defined %}{{data['cover']}}{%endif%}";
         }
 
-        function bindBlogIdeaElement()
-        {
+        function bindBlogIdeaElement() {
             var primaryKeyword = document.getElementById("primaryKeyword");
-            primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {%endif%}";
+            primaryKeyword.value = "{% if data is defined %}{{data['primaryKeyword']}}{%endif%}";
         }
 
-        function bindInterviewQuestionsElements()
-        {
+        function bindInterviewQuestionsElements() {
             var intervieweeBio = document.getElementById("intervieweeBio");
-            intervieweeBio.value = "{% if data is defined %} {{data['intervieweeBio']}} {%endif%}";
+            intervieweeBio.value = "{% if data is defined %}{{data['intervieweeBio']}}{%endif%}";
             var interviewContext = document.getElementById("interviewContext");
-            interviewContext.value = "{% if data is defined %} {{data['interviewContext']}} {%endif%}";
+            interviewContext.value = "{% if data is defined %}{{data['interviewContext']}}{%endif%}";
         }
 
-        function bindJobDescriptionElement()
-        {
+        function bindJobDescriptionElement() {
             var role = document.getElementById("role");
-            role.value = "{% if data is defined %} {{data['role']}} {%endif%}";
+            role.value = "{% if data is defined %}{{data['role']}}{%endif%}";
         }
 
-        function bindTaglineElement()
-        {
+        function bindTaglineElement() {
             var description = document.getElementById("description");
-            description.value = "{% if data is defined %} {{data['description']}} {%endif%}";
+            description.value = "{% if data is defined %}{{data['description']}}{%endif%}";
         }
 
-        function bindTestimonialElements()
-        {
+        function bindTestimonialElements() {
             var name = document.getElementById("name");
-            name.value = "{% if data is defined %} {{data['name']}} {%endif%}";
+            name.value = "{% if data is defined %}{{data['name']}}{%endif%}";
             var reviewTitle = document.getElementById("reviewTitle");
-            reviewTitle.value = "{% if data is defined %} {{data['reviewTitle']}} {%endif%}";
+            reviewTitle.value = "{% if data is defined %}{{data['reviewTitle']}}{%endif%}";
         }
 
-        function bindQuestionAnswerElement()
-        {
+        function bindQuestionAnswerElement() {
             var description = document.getElementById("description");
-            description.value = "{% if data is defined %} {{data['description']}} {%endif%}";
+            description.value = "{% if data is defined %}{{data['description']}}{%endif%}";
         }
 
-        function bindKeywordsGeneratorElement()
-        {
+        function bindKeywordsGeneratorElement() {
             var primaryKeyword = document.getElementById("primaryKeyword");
-            primaryKeyword.value = "{% if data is defined %} {{data['primaryKeyword']}} {%endif%}";
+            primaryKeyword.value = "{% if data is defined %}{{data['primaryKeyword']}}{%endif%}";
         }
 
-        function bindBusinessIdeasElements()
-        {
+        function bindBusinessIdeasElements() {
             var interest = document.getElementById("interest");
-            interest.value = "{% if data is defined %} {{data['interest']}} {%endif%}";
+            interest.value = "{% if data is defined %}{{data['interest']}}{%endif%}";
             var skills = document.getElementById("skills");
-            skills.value = "{% if data is defined %} {{data['skills']}} {%endif%}";
+            skills.value = "{% if data is defined %}{{data['skills']}}{%endif%}";
         }
 
-        function bindPostIdeaElement()
-        {
+        function bindPostIdeaElement() {
             var topic = document.getElementById("topic");
-            topic.value = "{% if data is defined %} {{data['topic']}} {%endif%}";
+            topic.value = "{% if data is defined %}{{data['topic']}}{%endif%}";
         }
 
-        function bindSEOMetaTitleElement()
-        {
+        function bindSEOMetaTitleElement() {
             var keywords = document.getElementById("keywords");
-            keywords.value = "{% if data is defined %} {{data['keywords']}} {%endif%}";
+            keywords.value = "{% if data is defined %}{{data['keywords']}}{%endif%}";
         }
 
-        function bindProductDescriptionElements()
-        {
+        function bindProductDescriptionElements() {
             var name = document.getElementById("name");
-            name.value = "{% if data is defined %} {{data['name']}} {%endif%}";
+            name.value = "{% if data is defined %}{{data['name']}}{%endif%}";
             var about = document.getElementById("about");
-            about.value = "{% if data is defined %} {{data['about']}} {%endif%}";
+            about.value = "{% if data is defined %}{{data['about']}}{%endif%}";
         }
 
     </script>

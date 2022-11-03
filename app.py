@@ -15,8 +15,13 @@ ckeditor = CKEditor(app)
 def index():
     if request.method == "POST":
         result, data = handle_post_request(request)
-        result = string_helper.to_html_string(result)
+        result = handle_result(result)
         # return redirect(url_for("index", result=result))
         return render_template("index.html", result=result, data=data)
 
     return render_template("index.html")
+
+
+def handle_result(result):
+    return string_helper.to_html_string(result)
+    
