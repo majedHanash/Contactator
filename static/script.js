@@ -105,33 +105,38 @@ function removeAllRemovables() {
 function addEmailElement() {
     var container = document.getElementById("filter-container");
     var row = addLabeledTextareaElement("Key points", "keyPoints", "keyPoints",
-        "hello manager\nI need a week off to travel home\nI have to attend my friend's wedding", 3);
+        "Hello manager\nI need a week off to travel home\nI have to attend my friend's wedding", 3);
     container.appendChild(row);
 }
 
 function addSMSElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextareaElement("Context", "context", "context");
+    var row = addLabeledTextareaElement("Context", "context", "context",
+        "Don't forget the meeting today");
     container.appendChild(row);
 }
 
 function addSongElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextareaElement("Song idea", "idea", "idea");
+    var row = addLabeledTextareaElement("Song idea", "idea", "idea",
+        "A couple in love in Paris");
     container.appendChild(row);
 }
 
 function addStoryElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextareaElement("Story idea", "idea", "idea");
+    var row = addLabeledTextareaElement("Story idea", "idea", "idea",
+        "Five kids lost in the jungle");
     container.appendChild(row);
 }
 
 function addFacebookElement() {
     var container = document.getElementById("filter-container");
-    var row1 = addLabeledTextElement("Product name", "productName", "productName");
+    var row1 = addLabeledTextElement("Product name", "productName", "productName",
+        "Lee");
 
-    var row2 = addLabeledTextareaElement("Product description", "productDescription", "productDescription");
+    var row2 = addLabeledTextareaElement("Product description", "productDescription", "productDescription",
+        "Best chocolate in middle east");
     container.appendChild(row1);
     container.appendChild(row2);
 }
@@ -149,9 +154,12 @@ function addCoverLetterElements() {
 
 function addVideoChannelDescriptionElements() {
     var container = document.getElementById("filter-container");
-    var row1 = addLabeledTextElement("Category", "category", "category");
-    var row2 = addLabeledTextElement("Channel name", "name", "name");
-    var row3 = addLabeledTextareaElement("What to cover", "cover", "cover");
+    var row1 = addLabeledTextElement("Category", "category", "category",
+        "Education");
+    var row2 = addLabeledTextElement("Channel name", "name", "name",
+        "Statictac");
+    var row3 = addLabeledTextareaElement("What to cover", "cover", "cover",
+        "Teaching statistics and AI");
 
     container.appendChild(row1);
     container.appendChild(row2);
@@ -167,41 +175,49 @@ function addBlogIdeaElement() {
 
 function addInterviewQuestionsElements() {
     var container = document.getElementById("filter-container");
-    var row1 = addLabeledTextareaElement("Interviewee bio", "intervieweeBio", "intervieweeBio", 3);
-    var row2 = addLabeledTextareaElement("Interview context", "interviewContext", "interviewContext");
+    var row1 = addLabeledTextareaElement("Interviewee bio", "intervieweeBio", "intervieweeBio",
+        "Regina Phalange is a data scientist with 3 years experience", 3);
+    var row2 = addLabeledTextareaElement("Interview context", "interviewContext", "interviewContext",
+        "Interviewing a candidate for a role of data engineering");
     container.appendChild(row1);
     container.appendChild(row2);
 }
 
 function addJobDescriptionElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextElement("Jobe role", "role", "role");
+    var row = addLabeledTextElement("Jobe role", "role", "role",
+        "Marketing manager");
     container.appendChild(row);
 }
 
 function addTaglineElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextareaElement("Description", "description", "description", 3);
+    var row = addLabeledTextareaElement("Description", "description", "description",
+        "Sham is a Syrian restaurant located in Dubai. It has all kind of delicious Syrian food and salads. Peaceful restaurant with a great view", 3);
     container.appendChild(row);
 }
 
 function addTestimonialElements() {
     var container = document.getElementById("filter-container");
-    var row1 = addLabeledTextElement("Name", "name", "name");
-    var row2 = addLabeledTextareaElement("Review title", "reviewTitle", "reviewTitle");
+    var row1 = addLabeledTextElement("Name", "name", "name",
+        "Asatana");
+    var row2 = addLabeledTextareaElement("Review title", "reviewTitle", "reviewTitle",
+        "Best hotel in Abu Dhabi with Turkish style");
     container.appendChild(row1);
     container.appendChild(row2);
 }
 
 function addQuestionAnswerElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextareaElement("Topic description", "description", "description", 4);
+    var row = addLabeledTextareaElement("Topic description", "description", "description",
+        "Real Madrid further enhanced their legendary status in world football by clinching their 14th European Cup in 2022. The Whites added to their silverware list in the competition when they defeated Liverpool in Paris. The club had previously secured its first trophies of the decade when it won its 12th Spanish Super Cup against Athletic in Riad.", 4);
     container.appendChild(row);
 }
 
 function addKeywordsGeneratorElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextElement("Primary keyword", "primaryKeyword", "primaryKeyword");
+    var row = addLabeledTextElement("Primary keyword", "primaryKeyword", "primaryKeyword",
+        "Gaming channel");
     container.appendChild(row);
 }
 
@@ -217,27 +233,28 @@ function addBusinessIdeasElements() {
 
 function addPostIdeaElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextareaElement("Topic", "topic", "topic");
+    var row = addLabeledTextareaElement("Topic", "topic", "topic",
+        "Inspiring community members to share their voices and ideas openly");
     container.appendChild(row);
 }
 
 function addSEOMetaTitleElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextElement("Target keywords", "keywords", "keywords");
+    var row = addLabeledTextElement("Target keywords", "keywords", "keywords",
+        "AI writing assistant, content generator");
     container.appendChild(row);
 }
 
 function addProductDescriptionElements() {
     var container = document.getElementById("filter-container");
-    var row1 = addLabeledTextElement("Product Name", "name", "name");
-    var row2 = addLabeledTextareaElement("About product", "about", "about", 3);
+    var row1 = addLabeledTextElement("Product Name", "name", "name",
+        "Bee Order");
+    var row2 = addLabeledTextareaElement("About product", "about", "about",
+        "Fastest food delivery application in Syria", 3);
     container.appendChild(row1);
     container.appendChild(row2);
 }
 
-function unescape(string) {
-    return new DOMParser().parseFromString(string, 'text/html').querySelector('html').textContent;
-}
 
 function addLabeledTextElement(labelText, id, name, placeholder) {
     var row = document.createElement("div");
@@ -279,4 +296,8 @@ function addLabeledTextareaElement(labelText, id, name, placeholder, rows = 2) {
     formGroup.appendChild(text);
     row.appendChild(formGroup);
     return row;
+}
+
+function unescape(string) {
+    return new DOMParser().parseFromString(string, 'text/html').querySelector('html').textContent;
 }

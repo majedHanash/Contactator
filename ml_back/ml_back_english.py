@@ -14,7 +14,7 @@ def generate_sms(tone, context):
 
 def generate_song(tone, idea):
     return generate_text(
-        """Write me {tone} song lyrics about {idea} """.format(tone=tone, idea=idea), max_tokens=140)
+        """Write me {tone} song lyrics about {idea} """.format(tone=tone, idea=idea), max_tokens=200)
 
 
 def generate_story(tone, idea):
@@ -44,12 +44,12 @@ def generate_blog_idea(tone, primary_keyword):
 
 def generate_interview_questions(tone, interviewee_bio, interview_context):
     return generate_text(
-        """suggest {tone} interview questions for {interviewee_bio}. {interview_context}""".format(tone=tone, interviewee_bio=interviewee_bio, interview_context=interview_context), max_tokens=100)
+        """suggest {tone} interview questions for {interviewee_bio}. {interview_context}.""".format(tone=tone, interviewee_bio=interviewee_bio, interview_context=interview_context), max_tokens=100)
 
 
 def generate_job_description(tone, role):
     return generate_text(
-        """write me {tone} job description for {role}""".format(tone=tone, role=role), max_tokens=200)
+        """write me {tone} job description for {role}.""".format(tone=tone, role=role), max_tokens=200)
 
 
 def generate_tagline(tone, description):
@@ -89,5 +89,5 @@ def generate_seo_meta_title(tone, keywords):
 
 def generate_product_description(tone, name, about):
     return generate_text(
-        """Write {tone} product description for a product called: {name}. {about}""".format(tone=tone, name=name, about=about), max_tokens=200)
+        """Write {tone} product description for a product called: {name}. {about}.""".format(tone=tone, name=name, about=about), max_tokens=200)
 
