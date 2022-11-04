@@ -104,7 +104,8 @@ function removeAllRemovables() {
 
 function addEmailElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextareaElement("Key points", "keyPoints", "keyPoints", 3);
+    var row = addLabeledTextareaElement("Key points", "keyPoints", "keyPoints",
+        "hello manager\nI need a week off to travel home\nI have to attend my friend's wedding", 3);
     container.appendChild(row);
 }
 
@@ -137,8 +138,10 @@ function addFacebookElement() {
 
 function addCoverLetterElements() {
     var container = document.getElementById("filter-container");
-    var row1 = addLabeledTextElement("Job Role", "jobRole", "jobRole");
-    var row2 = addLabeledTextElement("Job Skills", "jobSkills", "jobSkills");
+    var row1 = addLabeledTextElement("Job Role", "jobRole", "jobRole",
+        "AI developer");
+    var row2 = addLabeledTextElement("Job Skills", "jobSkills", "jobSkills",
+        "python, data science, sql");
 
     container.appendChild(row1);
     container.appendChild(row2);
@@ -157,7 +160,8 @@ function addVideoChannelDescriptionElements() {
 
 function addBlogIdeaElement() {
     var container = document.getElementById("filter-container");
-    var row = addLabeledTextElement("Primary keyword", "primaryKeyword", "primaryKeyword");
+    var row = addLabeledTextElement("Primary keyword", "primaryKeyword", "primaryKeyword",
+        "Farming in future");
     container.appendChild(row);
 }
 
@@ -203,8 +207,10 @@ function addKeywordsGeneratorElement() {
 
 function addBusinessIdeasElements() {
     var container = document.getElementById("filter-container");
-    var row1 = addLabeledTextElement("Interest", "interest", "interest");
-    var row2 = addLabeledTextareaElement("Skills", "skills", "skills");
+    var row1 = addLabeledTextElement("Interest", "interest", "interest",
+        "Organic food");
+    var row2 = addLabeledTextareaElement("Skills", "skills", "skills",
+        "AI, Software engineering");
     container.appendChild(row1);
     container.appendChild(row2);
 }
@@ -229,7 +235,11 @@ function addProductDescriptionElements() {
     container.appendChild(row2);
 }
 
-function addLabeledTextElement(labelText, id, name) {
+function unescape(string) {
+    return new DOMParser().parseFromString(string, 'text/html').querySelector('html').textContent;
+}
+
+function addLabeledTextElement(labelText, id, name, placeholder) {
     var row = document.createElement("div");
     row.classList.add("row");
     row.classList.add("removable");
@@ -243,13 +253,14 @@ function addLabeledTextElement(labelText, id, name) {
     text.id = id;
     text.name = name;
     text.required = true;
+    text.placeholder = placeholder
     formGroup.appendChild(label);
     formGroup.appendChild(text);
     row.appendChild(formGroup);
     return row
 }
 
-function addLabeledTextareaElement(labelText, id, name, rows = 2) {
+function addLabeledTextareaElement(labelText, id, name, placeholder, rows = 2) {
     var row = document.createElement("div");
     row.classList.add("row");
     row.classList.add("removable");
@@ -263,6 +274,7 @@ function addLabeledTextareaElement(labelText, id, name, rows = 2) {
     text.id = id;
     text.name = name;
     text.required = true;
+    text.placeholder = placeholder;
     formGroup.appendChild(label);
     formGroup.appendChild(text);
     row.appendChild(formGroup);

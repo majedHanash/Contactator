@@ -29,7 +29,7 @@ def generate_facebook_ad(tone, product_name, product_description):
 
 def generate_cover_letter(tone, job_role, job_skills):
     return generate_text(
-        """Write me {tone} cover letter for {job_role} role. skills: {job_skills} """.format(tone=tone, job_role=job_role, job_skills=job_skills), max_tokens=150)
+        """Write me {tone} cover letter for {job_role} role. skills: {job_skills} """.format(tone=tone, job_role=job_role, job_skills=job_skills), max_tokens=200)
 
 
 def generate_video_channel_description(tone, category, name, cover):
@@ -39,7 +39,7 @@ def generate_video_channel_description(tone, category, name, cover):
 
 def generate_blog_idea(tone, primary_keyword):
     return generate_text(
-        """suggest {tone} blog idea {primary_keyword}""".format(tone=tone, primary_keyword=primary_keyword), max_tokens=100)
+        """suggest {tone} Blog idea with outline about {primary_keyword}.""".format(tone=tone, primary_keyword=primary_keyword), max_tokens=250)
 
 
 def generate_interview_questions(tone, interviewee_bio, interview_context):

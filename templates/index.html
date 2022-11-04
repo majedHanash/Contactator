@@ -22,8 +22,8 @@
                             <div class="form-group">
                                 <label for="exampleInputLanguage">Select Language</label>
                                 <div class="dropdown language">
-                                    <select class="form-select" aria-label="Default select example" name="language"
-                                        id="language" onchange="updateCkeditorLanguage()">
+                                    <select class="form-select" title="Select language" aria-label="Language select"
+                                        name="language" id="language" onchange="updateCkeditorLanguage()">
                                         <option id="Arabic" value="Arabic" {% if data is defined and
                                             data['language']=='Arabic' %} selected {%endif%}>Arabic</option>
                                         <option value="English" {% if ((data is defined and data['language']=='English'
@@ -37,7 +37,8 @@
                             <div class="form-group">
                                 <label for="exampleInputTone">Select tone</label>
                                 <div class="dropdown tone">
-                                    <select class="form-select" aria-label="Default select example" name="tone">
+                                    <select class="form-select" title="Select tone" aria-label="Tone Select"
+                                        name="tone">
                                         <option value="Appreciative" {% if data is defined and
                                             data['tone']=='Appreciative' %} selected {%endif%}>Appreciative</option>
                                         <option value="Assertive" {% if data is defined and data['tone']=='Assertive' %}
@@ -271,108 +272,108 @@
 
         function bindEmailElement() {
             var keyPoints = document.getElementById("keyPoints");
-            keyPoints.value = "{% if data is defined %}{{data['keyPoints']}}{%endif%}";
+            keyPoints.value = unescape("{% if data is defined %}{{data['keyPoints']}}{%endif%}");
         }
 
         function bindSMSElement() {
             var context = document.getElementById("context");
-            context.value = "{% if data is defined %}{{data['context']}}{%endif%}";
+            context.value = unescape("{% if data is defined %}{{data['context']}}{%endif%}");
         }
 
         function bindSongElement() {
             var idea = document.getElementById("idea");
-            idea.value = "{% if data is defined %}{{data['idea']}}{%endif%}";
+            idea.value = unescape("{% if data is defined %}{{data['idea']}}{%endif%}");
         }
 
         function bindStoryElement() {
             var idea = document.getElementById("idea");
-            idea.value = "{% if data is defined %}{{data['idea']}}{%endif%}";
+            idea.value = unescape("{% if data is defined %}{{data['idea']}}{%endif%}");
         }
 
         function bindFacebookElement() {
             var productName = document.getElementById("productName");
-            productName.value = "{% if data is defined %}{{data['productName']}}{%endif%}";
+            productName.value = unescape("{% if data is defined %}{{data['productName']}}{%endif%}");
             var productDescription = document.getElementById("productDescription");
-            productDescription.value = "{% if data is defined %}{{data['productDescription']}}{%endif%}";
+            productDescription.value = unescape("{% if data is defined %}{{data['productDescription']}}{%endif%}");
         }
 
         function bindCoverLetterElements() {
             var jobRole = document.getElementById("jobRole");
-            jobRole.value = "{% if data is defined %}{{data['jobRole']}}{%endif%}";
+            jobRole.value = unescape("{% if data is defined %}{{data['jobRole']}}{%endif%}");
             var jobSkills = document.getElementById("jobSkills");
-            jobSkills.value = "{% if data is defined %}{{data['jobSkills']}}{%endif%}";
+            jobSkills.value = unescape("{% if data is defined %}{{data['jobSkills']}}{%endif%}");
         }
 
         function bindVideoChannelDescriptionElements() {
             var category = document.getElementById("category");
-            category.value = "{% if data is defined %}{{data['category']}}{%endif%}";
+            category.value = unescape("{% if data is defined %}{{data['category']}}{%endif%}");
             var name = document.getElementById("name");
-            name.value = "{% if data is defined %}{{data['name']}}{%endif%}";
+            name.value = unescape("{% if data is defined %}{{data['name']}}{%endif%}");
             var cover = document.getElementById("cover");
-            cover.value = "{% if data is defined %}{{data['cover']}}{%endif%}";
+            cover.value = unescape("{% if data is defined %}{{data['cover']}}{%endif%}");
         }
 
         function bindBlogIdeaElement() {
             var primaryKeyword = document.getElementById("primaryKeyword");
-            primaryKeyword.value = "{% if data is defined %}{{data['primaryKeyword']}}{%endif%}";
+            primaryKeyword.value = unescape("{% if data is defined %}{{data['primaryKeyword']}}{%endif%}");
         }
 
         function bindInterviewQuestionsElements() {
             var intervieweeBio = document.getElementById("intervieweeBio");
-            intervieweeBio.value = "{% if data is defined %}{{data['intervieweeBio']}}{%endif%}";
+            intervieweeBio.value = unescape("{% if data is defined %}{{data['intervieweeBio']}}{%endif%}");
             var interviewContext = document.getElementById("interviewContext");
-            interviewContext.value = "{% if data is defined %}{{data['interviewContext']}}{%endif%}";
+            interviewContext.value = unescape("{% if data is defined %}{{data['interviewContext']}}{%endif%}");
         }
 
         function bindJobDescriptionElement() {
             var role = document.getElementById("role");
-            role.value = "{% if data is defined %}{{data['role']}}{%endif%}";
+            role.value = unescape("{% if data is defined %}{{data['role']}}{%endif%}");
         }
 
         function bindTaglineElement() {
             var description = document.getElementById("description");
-            description.value = "{% if data is defined %}{{data['description']}}{%endif%}";
+            description.value = unescape("{% if data is defined %}{{data['description']}}{%endif%}");
         }
 
         function bindTestimonialElements() {
             var name = document.getElementById("name");
-            name.value = "{% if data is defined %}{{data['name']}}{%endif%}";
+            name.value = unescape("{% if data is defined %}{{data['name']}}{%endif%}");
             var reviewTitle = document.getElementById("reviewTitle");
-            reviewTitle.value = "{% if data is defined %}{{data['reviewTitle']}}{%endif%}";
+            reviewTitle.value = unescape("{% if data is defined %}{{data['reviewTitle']}}{%endif%}");
         }
 
         function bindQuestionAnswerElement() {
             var description = document.getElementById("description");
-            description.value = "{% if data is defined %}{{data['description']}}{%endif%}";
+            description.value = unescape("{% if data is defined %}{{data['description']}}{%endif%}");
         }
 
         function bindKeywordsGeneratorElement() {
             var primaryKeyword = document.getElementById("primaryKeyword");
-            primaryKeyword.value = "{% if data is defined %}{{data['primaryKeyword']}}{%endif%}";
+            primaryKeyword.value = unescape("{% if data is defined %}{{data['primaryKeyword']}}{%endif%}");
         }
 
         function bindBusinessIdeasElements() {
             var interest = document.getElementById("interest");
-            interest.value = "{% if data is defined %}{{data['interest']}}{%endif%}";
+            interest.value = unescape("{% if data is defined %}{{data['interest']}}{%endif%}");
             var skills = document.getElementById("skills");
-            skills.value = "{% if data is defined %}{{data['skills']}}{%endif%}";
+            skills.value = unescape("{% if data is defined %}{{data['skills']}}{%endif%}");
         }
 
         function bindPostIdeaElement() {
             var topic = document.getElementById("topic");
-            topic.value = "{% if data is defined %}{{data['topic']}}{%endif%}";
+            topic.value = unescape("{% if data is defined %}{{data['topic']}}{%endif%}");
         }
 
         function bindSEOMetaTitleElement() {
             var keywords = document.getElementById("keywords");
-            keywords.value = "{% if data is defined %}{{data['keywords']}}{%endif%}";
+            keywords.value = unescape("{% if data is defined %}{{data['keywords']}}{%endif%}");
         }
 
         function bindProductDescriptionElements() {
             var name = document.getElementById("name");
-            name.value = "{% if data is defined %}{{data['name']}}{%endif%}";
+            name.value = unescape("{% if data is defined %}{{data['name']}}{%endif%}");
             var about = document.getElementById("about");
-            about.value = "{% if data is defined %}{{data['about']}}{%endif%}";
+            about.value = unescape("{% if data is defined %}{{data['about']}}{%endif%}");
         }
 
     </script>
