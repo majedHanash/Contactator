@@ -15,6 +15,8 @@ function disableUndevelopedArabicUseCases() {
             break;
         case "SMS":
             break;
+        case "Story":
+            break;
         default:
             disableArabic(false);
             break;

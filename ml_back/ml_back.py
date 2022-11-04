@@ -26,7 +26,7 @@ def generate_story(language, tone, idea):
     if language == "English":
         return ml_back_english.generate_story(tone, idea)
     else:
-        return None
+        return ml_back_arabic.generate_story(tone, idea)
 
 def generate_facebook_ad(language, tone, product_name, product_description):
     if language == "English":
