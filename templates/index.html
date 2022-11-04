@@ -20,6 +20,21 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
+                                <label for="exampleInputLanguage">Select Language</label>
+                                <div class="dropdown language">
+                                    <select class="form-select" aria-label="Default select example" name="language"
+                                        id="language" onchange="updateCkeditorLanguage()">
+                                        <option id="Arabic" value="Arabic" {% if data is defined and
+                                            data['language']=='Arabic' %} selected {%endif%}>Arabic</option>
+                                        <option value="English" {% if ((data is defined and data['language']=='English'
+                                            ) or (data is not defined)) %} selected {%endif%}>English</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-group">
                                 <label for="exampleInputTone">Select tone</label>
                                 <div class="dropdown tone">
                                     <select class="form-select" aria-label="Default select example" name="tone">
@@ -74,80 +89,87 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputUseCase">Select use case</label>
-                                <div class="dropdown use-case">
-                                    <select title="Select your use case" class=" selectpicker form-select"
-                                        onchange="addElements()" id="useCase" name="useCase">
-                                        <option value="BlogIdea" {% if data is defined and data['useCase']=='BlogIdea'
-                                            %} selected {%endif%}>Blog Idea & Outline</option>
-                                        <!--<option value="BlogSection" {% if data is defined and data['useCase']=='BlogSection' %} selected {%endif%}>Blog Section Writing</option>-->
-                                        <!--<option value="BrandName" {% if data is defined and data['useCase']=='BrandName' %} selected {%endif%}>Brand Name</option>-->
-                                        <!--<option value="BusinessIdeaPitch" {% if data is defined and data['useCase']=='BusinessIdeaPitch' %} selected {%endif%}>Business Idea Pitch</option>-->
-                                        <option value="BusinessIdeas" {% if data is defined and
-                                            data['useCase']=='BusinessIdeas' %} selected {%endif%}>Business Ideas
-                                        </option>
-                                        <!--<option value="CallToAction" {% if data is defined and data['useCase']=='CallToAction' %} selected {%endif%}>Call To Action</option>-->
-                                        <!--<option value="AIDA" {% if data is defined and data['useCase']=='AIDA' %} selected {%endif%}>Copywriting Framework: AIDA</option>-->
-                                        <!--<option value="PAS" {% if data is defined and data['useCase']=='PAS' %} selected {%endif%}>Copywriting Framework: PAS</option>-->
-                                        <option value="CoverLetter" {% if data is defined and
-                                            data['useCase']=='CoverLetter' %} selected {%endif%}>Cover Letter</option>
-                                        <option value="Email" {% if ((data is defined and data['useCase']=='Email' ) or
-                                            (data is not defined)) %} selected {%endif%}>Email</option>
-                                        <option value="Facebook" {% if data is defined and data['useCase']=='Facebook'
-                                            %} selected {%endif%}>Facebook, Twitter, LinkedIn Ads</option>
-                                        <!--<option value="GoogleAd" {% if data is defined and data['useCase']=='GoogleAd' %} selected {%endif%}>Google Search Ads</option>-->
-                                        <option value="InterviewQuestions" {% if data is defined and
-                                            data['useCase']=='InterviewQuestions' %} selected {%endif%}>Interview
-                                            Questions</option>
-                                        <option value="JobDescription" {% if data is defined and
-                                            data['useCase']=='JobDescription' %} selected {%endif%}>Job Description
-                                        </option>
-                                        <!--<option value="KeywordsExtractor" {% if data is defined and data['useCase']=='KeywordsExtractor' %} selected {%endif%}>Keywords Extractor</option>-->
-                                        <option value="KeywordsGenerator" {% if data is defined and
-                                            data['useCase']=='KeywordsGenerator' %} selected {%endif%}>Keywords
-                                            Generator</option>
-                                        <!--<option value="LandingPage" {% if data is defined and data['useCase']=='LandingPage' %} selected {%endif%}>Landing Page & Website Copies</option>-->
-                                        <!--<option value="MagicCommand" {% if data is defined and data['useCase']=='MagicCommand' %} selected {%endif%}>Magic Command</option>-->
-                                        <option value="PostIdea" {% if data is defined and data['useCase']=='PostIdea'
-                                            %} selected {%endif%}>Post & Caption Ideas</option>
-                                        <option value="ProductDescription" {% if data is defined and
-                                            data['useCase']=='ProductDescription' %} selected {%endif%}>Product
-                                            Description</option>
-                                        <!--<option value="ProductDescriptionBullet" {% if data is defined and data['useCase']=='ProductDescriptionBullet' %} selected {%endif%}>Product Description (bullet points)</option>-->
-                                        <!--<option value="ProfileBio" {% if data is defined and data['useCase']=='ProfileBio' %} selected {%endif%}>Profile Bio</option>-->
-                                        <option value="QuestionAnswer" {% if data is defined and
-                                            data['useCase']=='QuestionAnswer' %} selected {%endif%}>Question & Answer
-                                        </option>
-                                        <!--<option value="ReplyToReviews" {% if data is defined and data['useCase']=='ReplyToReviews' %} selected {%endif%}>Reply to Reviews & Messages</option>-->
-                                        <!--<option value="SEODescription" {% if data is defined and data['useCase']=='SEODescription' %} selected {%endif%}>SEO Meta Description</option>-->
-                                        <option value="SEOMetaTitle" {% if data is defined and
-                                            data['useCase']=='SEOMetaTitle' %} selected {%endif%}>SEO Meta Title
-                                        </option>
-                                        <option value="SMS" {% if data is defined and data['useCase']=='SMS' %} selected
-                                            {%endif%}>SMS & Notifications</option>ß
-                                        <option value="Song" {% if data is defined and data['useCase']=='Song' %}
-                                            selected {%endif%}>Song Lyrics</option>
-                                        <option value="Story" {% if data is defined and data['useCase']=='Story' %}
-                                            selected {%endif%}>Story Plot</option>
-                                        <option value="Tagline" {% if data is defined and data['useCase']=='Tagline' %}
-                                            selected {%endif%}>Tagline & Headline</option>
-                                        <option value="Testimonial" {% if data is defined and
-                                            data['useCase']=='Testimonial' %} selected {%endif%}>Testimonial & Review
-                                        </option>
-                                        <option value="VideoChannelDescription" {% if data is defined and
-                                            data['useCase']=='VideoChannelDescription' %} selected {%endif%}>Video
-                                            Channel Description</option>
-                                        <!--<option value="VideoDescription" {% if data is defined and data['useCase']=='VideoDescription' %} selected {%endif%}>Video Description</option>-->
-                                        <!--<option value="VideoIdea" {% if data is defined and data['useCase']=='VideoIdea' %} selected {%endif%}>Video Idea</option>-->
-                                    </select>
-                                </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group">
+                            <label for="exampleInputUseCase">Select use case</label>
+                            <div class="dropdown use-case">
+                                <select title="Select your use case" class="  selectpicker form-select form-control"
+                                    onchange="handleUseCaseOnChange()" id="useCase" name="useCase">
+                                    <option value="BlogIdea" {% if data is defined and data['useCase']=='BlogIdea' %}
+                                        selected {%endif%}>Blog Idea & Outline
+                                    </option>
+                                    <!--<option value="BlogSection" {% if data is defined and data['useCase']=='BlogSection' %} selected {%endif%}>Blog Section Writing</option>-->
+                                    <!--<option value="BrandName" {% if data is defined and data['useCase']=='BrandName' %} selected {%endif%}>Brand Name</option>-->
+                                    <!--<option value="BusinessIdeaPitch" {% if data is defined and data['useCase']=='BusinessIdeaPitch' %} selected {%endif%}>Business Idea Pitch</option>-->
+                                    <option value="BusinessIdeas" {% if data is defined and
+                                        data['useCase']=='BusinessIdeas' %} selected {%endif%}>Business Ideas
+                                    </option>
+                                    <!--<option value="CallToAction" {% if data is defined and data['useCase']=='CallToAction' %} selected {%endif%}>Call To Action</option>-->
+                                    <!--<option value="AIDA" {% if data is defined and data['useCase']=='AIDA' %} selected {%endif%}>Copywriting Framework: AIDA</option>-->
+                                    <!--<option value="PAS" {% if data is defined and data['useCase']=='PAS' %} selected {%endif%}>Copywriting Framework: PAS</option>-->
+                                    <option value="CoverLetter" {% if data is defined and data['useCase']=='CoverLetter'
+                                        %} selected {%endif%}>Cover Letter
+                                    </option>
+                                    <option value="Email" {% if ((data is defined and data['useCase']=='Email' ) or
+                                        (data is not defined)) %} selected {%endif%}>Email</option>
+                                    <option value="Facebook" {% if data is defined and data['useCase']=='Facebook' %}
+                                        selected {%endif%}>Facebook, Twitter,
+                                        LinkedIn Ads</option>
+                                    <!--<option value="GoogleAd" {% if data is defined and data['useCase']=='GoogleAd' %} selected {%endif%}>Google Search Ads</option>-->
+                                    <option value="InterviewQuestions" {% if data is defined and
+                                        data['useCase']=='InterviewQuestions' %} selected {%endif%}>Interview
+                                        Questions</option>
+                                    <option value="JobDescription" {% if data is defined and
+                                        data['useCase']=='JobDescription' %} selected {%endif%}>Job Description
+                                    </option>
+                                    <!--<option value="KeywordsExtractor" {% if data is defined and data['useCase']=='KeywordsExtractor' %} selected {%endif%}>Keywords Extractor</option>-->
+                                    <option value="KeywordsGenerator" {% if data is defined and
+                                        data['useCase']=='KeywordsGenerator' %} selected {%endif%}>Keywords
+                                        Generator</option>
+                                    <!--<option value="LandingPage" {% if data is defined and data['useCase']=='LandingPage' %} selected {%endif%}>Landing Page & Website Copies</option>-->
+                                    <!--<option value="MagicCommand" {% if data is defined and data['useCase']=='MagicCommand' %} selected {%endif%}>Magic Command</option>-->
+                                    <option value="PostIdea" {% if data is defined and data['useCase']=='PostIdea' %}
+                                        selected {%endif%}>Post & Caption Ideas
+                                    </option>
+                                    <option value="ProductDescription" {% if data is defined and
+                                        data['useCase']=='ProductDescription' %} selected {%endif%}>Product
+                                        Description</option>
+                                    <!--<option value="ProductDescriptionBullet" {% if data is defined and data['useCase']=='ProductDescriptionBullet' %} selected {%endif%}>Product Description (bullet points)</option>-->
+                                    <!--<option value="ProfileBio" {% if data is defined and data['useCase']=='ProfileBio' %} selected {%endif%}>Profile Bio</option>-->
+                                    <option value="QuestionAnswer" {% if data is defined and
+                                        data['useCase']=='QuestionAnswer' %} selected {%endif%}>Question &
+                                        Answer
+                                    </option>
+                                    <!--<option value="ReplyToReviews" {% if data is defined and data['useCase']=='ReplyToReviews' %} selected {%endif%}>Reply to Reviews & Messages</option>-->
+                                    <!--<option value="SEODescription" {% if data is defined and data['useCase']=='SEODescription' %} selected {%endif%}>SEO Meta Description</option>-->
+                                    <option value="SEOMetaTitle" {% if data is defined and
+                                        data['useCase']=='SEOMetaTitle' %} selected {%endif%}>SEO Meta Title
+                                    </option>
+                                    <option value="SMS" {% if data is defined and data['useCase']=='SMS' %} selected
+                                        {%endif%}>SMS & Notifications</option>ß
+                                    <option value="Song" {% if data is defined and data['useCase']=='Song' %} selected
+                                        {%endif%}>Song Lyrics</option>
+                                    <option value="Story" {% if data is defined and data['useCase']=='Story' %} selected
+                                        {%endif%}>Story Plot</option>
+                                    <option value="Tagline" {% if data is defined and data['useCase']=='Tagline' %}
+                                        selected {%endif%}>Tagline & Headline</option>
+                                    <option value="Testimonial" {% if data is defined and data['useCase']=='Testimonial'
+                                        %} selected {%endif%}>Testimonial &
+                                        Review
+                                    </option>
+                                    <option value="VideoChannelDescription" {% if data is defined and
+                                        data['useCase']=='VideoChannelDescription' %} selected {%endif%}>Video
+                                        Channel Description</option>
+                                    <!--<option value="VideoDescription" {% if data is defined and data['useCase']=='VideoDescription' %} selected {%endif%}>Video Description</option>-->
+                                    <!--<option value="VideoIdea" {% if data is defined and data['useCase']=='VideoIdea' %} selected {%endif%}>Video Idea</option>-->
+                                </select>
                             </div>
                         </div>
+
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-3">
 
@@ -163,13 +185,20 @@
             </form>
         </div>
 
+
         <div class="row">
 
             <div class="form-group">
                 {{ ckeditor.load() }}
                 {{ ckeditor.create(value=result) }}
+                {% if data is defined and data['language']=='Arabic' %} {{ckeditor.config(language='ar')}}
+                {%elif ((data is defined and data['language']=='English' ) or (data is not defined)) %}
+                {{ckeditor.config(language='en')}} {%endif%}
             </div>
         </div>
+    </div>
+
+
 
     </div>>
 

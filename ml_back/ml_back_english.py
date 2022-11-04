@@ -1,9 +1,5 @@
-import openai
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
-openai.api_key = os.getenv('OPENAI_API_KEY')
+from ml_back.gpt_3 import generate_text
 
 
 def generate_email(tone, key_points):
@@ -95,13 +91,3 @@ def generate_product_description(tone, name, about):
     return generate_text(
         """Write {tone} product description for a product called: {name}. {about}""".format(tone=tone, name=name, about=about), max_tokens=200)
 
-
-def generate_text(userPrompt, max_tokens=15):
-
-    response = openai.Completion.create(
-        model="text-davinci-002",
-        prompt=userPrompt,
-        temperature=0.79,
-        max_tokens=max_tokens
-    )
-    return response.get("choices")[0]['text']

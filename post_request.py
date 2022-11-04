@@ -1,5 +1,5 @@
 from urllib import request
-import ml_back
+from ml_back import ml_back
 
 
 def handle_post_request(request):
@@ -43,17 +43,17 @@ def handle_post_request(request):
         return handle_product_description_request(request), build_product_description_data(request)
 
 
-
 def handle_basic_data(request):
     data = dict()
     data['tone'] = request.form['tone']
     data['useCase'] = request.form['useCase']
+    data['language'] = request.form['language']
     return data
 
 
 def handle_email_request(request):
 
-    return ml_back.generate_email(request.form['tone'], request.form['keyPoints'])
+    return ml_back.generate_email(request.form['language'], request.form['tone'], request.form['keyPoints'])
 
 
 def build_email_data(request):
@@ -64,7 +64,7 @@ def build_email_data(request):
 
 def handle_sms_request(request):
 
-    return ml_back.generate_sms(request.form['tone'], request.form['context'])
+    return ml_back.generate_sms(request.form['language'], request.form['tone'], request.form['context'])
 
 
 def build_sms_data(request):
@@ -75,7 +75,7 @@ def build_sms_data(request):
 
 def handle_song_request(request):
 
-    return ml_back.generate_song(request.form['tone'], request.form['idea'])
+    return ml_back.generate_song(request.form['language'], request.form['tone'], request.form['idea'])
 
 
 def build_song_data(request):
@@ -86,7 +86,7 @@ def build_song_data(request):
 
 def handle_story_request(request):
 
-    return ml_back.generate_story(request.form['tone'], request.form['idea'])
+    return ml_back.generate_story(request.form['language'], request.form['tone'], request.form['idea'])
 
 
 def build_story_data(request):
@@ -97,7 +97,7 @@ def build_story_data(request):
 
 def handle_facebook_request(request):
 
-    return ml_back.generate_facebook_ad(request.form['tone'], request.form['productName'], request.form['productDescription'])
+    return ml_back.generate_facebook_ad(request.form['language'], request.form['tone'], request.form['productName'], request.form['productDescription'])
 
 
 def build_facebook_data(request):
@@ -109,7 +109,7 @@ def build_facebook_data(request):
 
 def handle_cover_letter_request(request):
 
-    return ml_back.generate_cover_letter(request.form['tone'], request.form['jobRole'], request.form['jobSkills'])
+    return ml_back.generate_cover_letter(request.form['language'], request.form['tone'], request.form['jobRole'], request.form['jobSkills'])
 
 
 def build_cover_letter_data(request):
@@ -121,7 +121,7 @@ def build_cover_letter_data(request):
 
 def handle_video_channel_description_request(request):
 
-    return ml_back.generate_video_channel_description(request.form['tone'], request.form['category'], request.form['name'], request.form['cover'])
+    return ml_back.generate_video_channel_description(request.form['language'], request.form['tone'], request.form['category'], request.form['name'], request.form['cover'])
 
 
 def build_video_channel_description_data(request):
@@ -134,7 +134,7 @@ def build_video_channel_description_data(request):
 
 def handle_blog_idea_request(request):
 
-    return ml_back.generate_blog_idea(request.form['tone'], request.form['primaryKeyword'])
+    return ml_back.generate_blog_idea(request.form['language'], request.form['tone'], request.form['primaryKeyword'])
 
 
 def build_blog_idea_data(request):
@@ -145,7 +145,7 @@ def build_blog_idea_data(request):
 
 def handle_interview_questions_request(request):
 
-    return ml_back.generate_interview_questions(request.form['tone'], request.form['intervieweeBio'], request.form['interviewContext'])
+    return ml_back.generate_interview_questions(request.form['language'], request.form['tone'], request.form['intervieweeBio'], request.form['interviewContext'])
 
 
 def build_interview_questions_data(request):
@@ -157,7 +157,7 @@ def build_interview_questions_data(request):
 
 def handle_job_description_request(request):
 
-    return ml_back.generate_job_description(request.form['tone'], request.form['role'])
+    return ml_back.generate_job_description(request.form['language'], request.form['tone'], request.form['role'])
 
 
 def build_job_description_data(request):
@@ -168,7 +168,7 @@ def build_job_description_data(request):
 
 def handle_tagline_request(request):
 
-    return ml_back.generate_tagline(request.form['tone'], request.form['description'])
+    return ml_back.generate_tagline(request.form['language'], request.form['tone'], request.form['description'])
 
 
 def build_tagline_data(request):
@@ -179,7 +179,7 @@ def build_tagline_data(request):
 
 def handle_testimonial_request(request):
 
-    return ml_back.generate_testimonial(request.form['tone'], request.form['name'], request.form['reviewTitle'])
+    return ml_back.generate_testimonial(request.form['language'], request.form['tone'], request.form['name'], request.form['reviewTitle'])
 
 
 def build_testimonial_data(request):
@@ -191,7 +191,7 @@ def build_testimonial_data(request):
 
 def handle_question_answer_request(request):
 
-    return ml_back.generate_question_answer(request.form['tone'], request.form['description'])
+    return ml_back.generate_question_answer(request.form['language'], request.form['tone'], request.form['description'])
 
 
 def build_question_answer_data(request):
@@ -202,7 +202,7 @@ def build_question_answer_data(request):
 
 def handle_keywords_generator_request(request):
 
-    return ml_back.generate_keywords_generator(request.form['tone'], request.form['primaryKeyword'])
+    return ml_back.generate_keywords_generator(request.form['language'], request.form['tone'], request.form['primaryKeyword'])
 
 
 def build_keywords_generator_data(request):
@@ -213,7 +213,7 @@ def build_keywords_generator_data(request):
 
 def handle_business_ideas_request(request):
     
-    return ml_back.generate_business_ideas(request.form['tone'], request.form['interest'], request.form['skills'])
+    return ml_back.generate_business_ideas(request.form['language'], request.form['tone'], request.form['interest'], request.form['skills'])
 
 
 def build_business_ideas_data(request):
@@ -225,7 +225,7 @@ def build_business_ideas_data(request):
 
 def handle_post_idea_request(request):
     
-    return ml_back.generate_post_idea(request.form['tone'], request.form['topic'])
+    return ml_back.generate_post_idea(request.form['language'], request.form['tone'], request.form['topic'])
 
 
 def build_post_idea_data(request):
@@ -236,7 +236,7 @@ def build_post_idea_data(request):
 
 def handle_seo_meta_title_request(request):
     
-    return ml_back.generate_seo_meta_title(request.form['tone'], request.form['keywords'])
+    return ml_back.generate_seo_meta_title(request.form['language'], request.form['tone'], request.form['keywords'])
 
 
 def build_seo_meta_title_data(request):
@@ -247,7 +247,7 @@ def build_seo_meta_title_data(request):
 
 def handle_product_description_request(request):
     
-    return ml_back.generate_product_description(request.form['tone'], request.form['name'], request.form['about'])
+    return ml_back.generate_product_description(request.form['language'], request.form['tone'], request.form['name'], request.form['about'])
 
 
 def build_product_description_data(request):

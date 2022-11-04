@@ -1,5 +1,37 @@
 document.onload = handleOnLoad();
 
+function handleUseCaseOnChange() {
+    addElements();
+    disableUndevelopedArabicUseCases();
+
+}
+
+function disableUndevelopedArabicUseCases() {
+    var useCase = document.getElementById("useCase").value;
+
+    enableArabic(true);
+    switch (useCase) {
+        case "Email":
+            break;
+        case "SMS":
+            break;
+        default:
+            disableArabic(false);
+            break;
+    }
+}
+
+function disableArabic() {
+    var language = document.getElementById("language");
+    language.value = "English";
+
+    enableArabic(false);
+}
+
+function enableArabic(enable) {
+    document.getElementById("Arabic").disabled = !enable;
+}
+
 function addElements() {
     removeAllRemovables();
     var useCase = document.getElementById("useCase").value;
