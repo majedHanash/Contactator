@@ -1,6 +1,6 @@
 document.onload = handleOnLoad();
 
-function handleUseCaseOnChange() {
+function handleUseCase() {
     addElements();
     disableUndevelopedArabicUseCases();
 

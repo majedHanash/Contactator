@@ -105,7 +105,7 @@
                             <label for="exampleInputUseCase">Select use case</label>
                             <div class="dropdown use-case">
                                 <select title="Select your use case" class="  selectpicker form-select form-control"
-                                    onchange="handleUseCaseOnChange()" id="useCase" name="useCase">
+                                    onchange="handleUseCase()" id="useCase" name="useCase">
                                     <option value="BlogIdea" {% if data is defined and data['useCase']=='BlogIdea' %}
                                         selected {%endif%}>Blog Idea & Outline
                                     </option>
@@ -209,7 +209,7 @@
 
         <script>
             function handleOnLoad() {
-                addElements();
+                handleUseCase();
                 bindElements();
 
             }
